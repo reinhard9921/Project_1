@@ -52,10 +52,10 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(895, 421);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStart.Location = new System.Drawing.Point(1193, 518);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(136, 54);
+            this.btnStart.Size = new System.Drawing.Size(181, 66);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Simulation";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -64,9 +64,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(10, 11);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(824, 483);
+            this.pictureBox1.Size = new System.Drawing.Size(1099, 594);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -74,18 +75,18 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(298, 31);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(49, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(65, 62);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
             // btnF16
             // 
             this.btnF16.Location = new System.Drawing.Point(895, 314);
-            this.btnF16.Margin = new System.Windows.Forms.Padding(2);
+            this.btnF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnF16.Name = "btnF16";
-            this.btnF16.Size = new System.Drawing.Size(56, 19);
+            this.btnF16.Size = new System.Drawing.Size(75, 23);
             this.btnF16.TabIndex = 3;
             this.btnF16.Text = "F16";
             this.btnF16.UseVisualStyleBackColor = true;
@@ -94,9 +95,9 @@
             // btn747
             // 
             this.btn747.Location = new System.Drawing.Point(895, 353);
-            this.btn747.Margin = new System.Windows.Forms.Padding(2);
+            this.btn747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn747.Name = "btn747";
-            this.btn747.Size = new System.Drawing.Size(56, 19);
+            this.btn747.Size = new System.Drawing.Size(75, 23);
             this.btn747.TabIndex = 4;
             this.btn747.Text = "747";
             this.btn747.UseVisualStyleBackColor = true;
@@ -105,9 +106,9 @@
             // btnBomber
             // 
             this.btnBomber.Location = new System.Drawing.Point(895, 387);
-            this.btnBomber.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBomber.Name = "btnBomber";
-            this.btnBomber.Size = new System.Drawing.Size(56, 19);
+            this.btnBomber.Size = new System.Drawing.Size(75, 23);
             this.btnBomber.TabIndex = 5;
             this.btnBomber.Text = "Bomber";
             this.btnBomber.UseVisualStyleBackColor = true;
@@ -118,9 +119,9 @@
             this.pbStealthBomber.BackColor = System.Drawing.Color.White;
             this.pbStealthBomber.Image = ((System.Drawing.Image)(resources.GetObject("pbStealthBomber.Image")));
             this.pbStealthBomber.Location = new System.Drawing.Point(757, 400);
-            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2);
+            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbStealthBomber.Name = "pbStealthBomber";
-            this.pbStealthBomber.Size = new System.Drawing.Size(79, 61);
+            this.pbStealthBomber.Size = new System.Drawing.Size(105, 75);
             this.pbStealthBomber.TabIndex = 6;
             this.pbStealthBomber.TabStop = false;
             this.pbStealthBomber.Click += new System.EventHandler(this.pbStealthBomber_Click);
@@ -130,9 +131,9 @@
             this.pbF16.BackColor = System.Drawing.Color.White;
             this.pbF16.Image = ((System.Drawing.Image)(resources.GetObject("pbF16.Image")));
             this.pbF16.Location = new System.Drawing.Point(757, 400);
-            this.pbF16.Margin = new System.Windows.Forms.Padding(2);
+            this.pbF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbF16.Name = "pbF16";
-            this.pbF16.Size = new System.Drawing.Size(79, 61);
+            this.pbF16.Size = new System.Drawing.Size(105, 75);
             this.pbF16.TabIndex = 7;
             this.pbF16.TabStop = false;
             // 
@@ -141,9 +142,9 @@
             this.pb747.BackColor = System.Drawing.Color.White;
             this.pb747.Image = ((System.Drawing.Image)(resources.GetObject("pb747.Image")));
             this.pb747.Location = new System.Drawing.Point(757, 400);
-            this.pb747.Margin = new System.Windows.Forms.Padding(2);
+            this.pb747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pb747.Name = "pb747";
-            this.pb747.Size = new System.Drawing.Size(79, 61);
+            this.pb747.Size = new System.Drawing.Size(105, 75);
             this.pb747.TabIndex = 8;
             this.pb747.TabStop = false;
             // 
@@ -165,9 +166,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 517);
+            this.ClientSize = new System.Drawing.Size(1381, 636);
             this.Controls.Add(this.pb747);
             this.Controls.Add(this.pbF16);
             this.Controls.Add(this.pbStealthBomber);
@@ -177,7 +178,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnStart);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

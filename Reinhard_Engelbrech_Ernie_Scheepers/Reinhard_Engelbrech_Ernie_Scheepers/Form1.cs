@@ -73,15 +73,20 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pb.Top -= 1;
         }
 
-        private void timerRight_Tick(object sender, EventArgs e)
+        private void btnStart_Click(object sender, EventArgs e)
         {
-            pb.Left += 1;
-        }
 
-        private void timerDown_Tick(object sender, EventArgs e)
-        {
-            pb.Top += 1;
+            int x = 1010;
+            int y = 500;
+
+            while (//Run tot hy by die base is die base se x = 220 en y = 42)
+            {
+                x -= 3;
+                y -= 1;
+                pb747.Location = new Point(x, y);
+
+
+            }
         }
     }
-
 }
