@@ -16,5 +16,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
