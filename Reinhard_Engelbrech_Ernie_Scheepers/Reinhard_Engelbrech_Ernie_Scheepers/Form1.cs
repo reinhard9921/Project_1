@@ -67,6 +67,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 pb.Left -= 2;
 
             }
+            else
+            {
+                timerLeft.Stop();
+            }
 
         }
 
@@ -75,6 +79,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Location.Y > 53)
             {
                 pb.Top -= 1;
+            }
+            else
+            {
+                timerTop.Stop();
             }
         }
 
@@ -90,12 +98,17 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         //    int x = 1010;
         //    int y = 500;
 
-            pb.Location = new Point(x, y);
+            ////pb.Location = new Point(x, y);
 
-            timerLeft.Start();
-            timerTop.Start();
+            //timerLeft.Start();
+            //timerTop.Start();
 
             }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            timerLeft.Start();
+            timerTop.Start();
         }
     }
-}
+    }
