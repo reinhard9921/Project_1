@@ -16,11 +16,24 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         public Form1()
         {
             InitializeComponent();
-
+            Jets.Add(new Jet("Spitfire", 600, 6100, 550, 2000, 2500));
+            Jets.Add(new Jet("F-16 Falcon", 2400, 12000, 1143, 9000, 9500));
+            Jets.Add(new Jet("de Haviland", 900, 18000, 750, 3000, 5000));
         }
 
+        double TimerAltitude;
+        double TimerSpeed;
         int TimerFuel = 100;
         PictureBox pb = null;
+        string Plane = null;
+        List<Jet> Jets = new List<Jet>();
+        List<PictureBox> Guns = new List<PictureBox>();
+        double altitude;
+        double speed;
+        double WeightLoaded;
+        double WeightUnloaded;
+        int fuel;
+        int CannonNumber;
 
         public void unhide(PictureBox pb)
         {
@@ -35,6 +48,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
                 pbHeadquaters.Visible = true;
+
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
@@ -44,10 +58,55 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             {
                 pbTankDepo.Visible = true;
             }
+            if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+         
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+ 
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon8.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            if (pb.Bounds.IntersectsWith(pbCannon9.Bounds))
+            {
+                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            prbFuel.Value = 100;
+
             pb747.Hide();
             pbF16.Hide();
             pbStealthBomber.Hide();
@@ -62,6 +121,21 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             int x = 757;
             int y = 400;
             pb.Location = new Point(x, y);
+            Plane = "F-16 Falcon";
+            foreach (Jet item in Jets)
+            {
+                if (item.Name == "F-16 Falcon")
+                {
+
+                    altitude = item.TopAltitude;
+                    speed = item.MaxSpeed;
+                    WeightLoaded = item.WeightWithInventory;
+                    WeightUnloaded = item.WeightWithoutInventory;
+                    fuel = Convert.ToInt32(item.FuelTankSize);
+                }
+            }
+            prbFuel.Maximum = fuel;
+            prbFuel.Value = fuel;
 
         }
 
@@ -74,6 +148,21 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             int x = 757;
             int y = 400;
             pb.Location = new Point(x, y);
+            Plane = "Spitfire";
+            foreach (Jet item in Jets)
+            {
+                if (item.Name == "Spitfire")
+                {
+
+                    altitude = item.TopAltitude;
+                    speed = item.MaxSpeed;
+                    WeightLoaded = item.WeightWithInventory;
+                    WeightUnloaded = item.WeightWithoutInventory;
+                    fuel = Convert.ToInt32(item.FuelTankSize);
+                }
+            }
+            prbFuel.Maximum = fuel;
+            prbFuel.Value = fuel;
         }
 
         private void btnBomber_Click(object sender, EventArgs e)
@@ -85,14 +174,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             int x = 757;
             int y = 400;
             pb.Location = new Point(x, y);
+            Plane = "de Haviland";
+            foreach (Jet item in Jets)
+            {
+                if (item.Name == "de Haviland")
+                {
+
+                    altitude = item.TopAltitude;
+                    speed = item.MaxSpeed;
+                    WeightLoaded = item.WeightWithInventory;
+                    WeightUnloaded = item.WeightWithoutInventory;
+                    fuel = Convert.ToInt32(item.FuelTankSize);
+                }
+            }
+            prbFuel.Maximum = fuel;
+            prbFuel.Value = fuel;
         }
-
-        private void pbStealthBomber_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -111,8 +208,13 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
             catch (Exception)
             {
-
+                tmrFuel.Stop();
+                timerLeft.Stop();
+                timerTop.Stop();
+                tmrAltitude.Stop();
+                TmrSpeed.Stop();
                 MessageBox.Show("Please choose a plane to fly with");
+
             }
 
         }
@@ -147,31 +249,38 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+
+
+
             tmrFuel.Start();
             timerLeft.Start();
             timerTop.Start();
+            tmrAltitude.Start();
+            TmrSpeed.Start();
+
+            if (Plane == "Spitfire")
+            {
+
+            }
+
+            if (Plane == "F-16 Falcon")
+            {
+
+            }
+
+            if (Plane == "de Haviland")
+            {
+
+            }
         }
 
-        private void pb747_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void pbF16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tmrFuel_Tick(object sender, EventArgs e)
         {
             if (TimerFuel >= 0)
             {
-                prbFuel.Value -= 2;
+                prbFuel.Value -= Convert.ToInt32(WeightLoaded / 1000);
                 TimerFuel -= 1;
             }
             else
@@ -181,5 +290,240 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
 
         }
+
+
+        private void tmrAltitude_Tick(object sender, EventArgs e)
+        {
+            if (TimerAltitude <= altitude)
+            {
+                TimerAltitude += 10;
+                lblAltitude.Text = Convert.ToString(TimerAltitude);
+            }
+            else
+            {
+                tmrAltitude.Stop();
+            }
+        }
+
+        private void TmrSpeed_Tick(object sender, EventArgs e)
+        {
+            if (TimerSpeed <= speed)
+            {
+                TimerSpeed += 10;
+                lblSpeed.Text = Convert.ToString(TimerSpeed);
+            }
+            else
+            {
+                TmrSpeed.Stop();
+            }
+        }
+
+        private void btnAddCannon_Click(object sender, EventArgs e)
+        {
+            PictureBox picture = new PictureBox
+            {
+                Name = "Cannon" + CannonNumber,
+                Size = new Size(60, 60),
+                Location = new Point(100, 100),
+                Image = Image.FromFile("Cannon1.png"),
+            };
+            Guns.Add(pb);
+            this.Controls.Add(pb);
+
+        }
+
+
+
+        Point dragPoint = Point.Empty;
+        bool dragging = false;
+
+
+
+
+        private void pbCannon_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon.Location = new Point(pbCannon.Location.X + e.X - dragPoint.X, pbCannon.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon2.Location = new Point(pbCannon2.Location.X + e.X - dragPoint.X, pbCannon2.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon3_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon3.Location = new Point(pbCannon3.Location.X + e.X - dragPoint.X, pbCannon3.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon4.Location = new Point(pbCannon4.Location.X + e.X - dragPoint.X, pbCannon4.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon5_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon5.Location = new Point(pbCannon5.Location.X + e.X - dragPoint.X, pbCannon5.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon6_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon6.Location = new Point(pbCannon6.Location.X + e.X - dragPoint.X, pbCannon6.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon6_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon7_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon7.Location = new Point(pbCannon7.Location.X + e.X - dragPoint.X, pbCannon7.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon7_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon8_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon8.Location = new Point(pbCannon8.Location.X + e.X - dragPoint.X, pbCannon8.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon8_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+        private void pbCannon9_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+                pbCannon9.Location = new Point(pbCannon9.Location.X + e.X - dragPoint.X, pbCannon9.Location.Y + e.Y - dragPoint.Y);
+        }
+
+        private void pbCannon9_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dragging == false)
+            {
+                dragging = true;
+                dragPoint = new Point(e.X, e.Y);
+            }
+            else
+            {
+                dragging = false;
+            }
+        }
+
+
+      
+
+
+
+      
+
+
+
+
+
+
+
+
     }
 }
