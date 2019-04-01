@@ -64,7 +64,6 @@
             this.lblSpeed = new System.Windows.Forms.Label();
             this.tmrAltitude = new System.Windows.Forms.Timer(this.components);
             this.TmrSpeed = new System.Windows.Forms.Timer(this.components);
-            this.btnAddCannon = new System.Windows.Forms.Button();
             this.pbCannon2 = new System.Windows.Forms.PictureBox();
             this.pbCannon3 = new System.Windows.Forms.PictureBox();
             this.pbCannon4 = new System.Windows.Forms.PictureBox();
@@ -402,16 +401,6 @@
             this.TmrSpeed.Interval = 10;
             this.TmrSpeed.Tick += new System.EventHandler(this.TmrSpeed_Tick);
             // 
-            // btnAddCannon
-            // 
-            this.btnAddCannon.Location = new System.Drawing.Point(1121, 81);
-            this.btnAddCannon.Name = "btnAddCannon";
-            this.btnAddCannon.Size = new System.Drawing.Size(205, 65);
-            this.btnAddCannon.TabIndex = 22;
-            this.btnAddCannon.Text = "Add Cannon";
-            this.btnAddCannon.UseVisualStyleBackColor = true;
-            this.btnAddCannon.Click += new System.EventHandler(this.btnAddCannon_Click);
-            // 
             // pbCannon2
             // 
             this.pbCannon2.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon2.Image")));
@@ -521,7 +510,6 @@
             this.Controls.Add(this.pbCannon4);
             this.Controls.Add(this.pbCannon3);
             this.Controls.Add(this.pbCannon2);
-            this.Controls.Add(this.btnAddCannon);
             this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblAltitude);
@@ -613,7 +601,6 @@
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Timer tmrAltitude;
         private System.Windows.Forms.Timer TmrSpeed;
-        private System.Windows.Forms.Button btnAddCannon;
         private System.Windows.Forms.PictureBox pbCannon2;
         private System.Windows.Forms.PictureBox pbCannon3;
         private System.Windows.Forms.PictureBox pbCannon4;
