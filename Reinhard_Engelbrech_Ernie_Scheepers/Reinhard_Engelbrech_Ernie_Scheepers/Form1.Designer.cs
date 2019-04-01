@@ -53,6 +53,8 @@
             this.pbCannon1 = new System.Windows.Forms.PictureBox();
             this.pbHeadquaters = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
+            this.pbtest = new System.Windows.Forms.PictureBox();
+            this.pbCannon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
@@ -68,35 +70,37 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(17, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 14);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1099, 594);
+            this.pictureBox1.Size = new System.Drawing.Size(824, 483);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // pbBarrack
             // 
             this.pbBarrack.Image = ((System.Drawing.Image)(resources.GetObject("pbBarrack.Image")));
-            this.pbBarrack.Location = new System.Drawing.Point(197, 108);
-            this.pbBarrack.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pbBarrack.Location = new System.Drawing.Point(148, 88);
+            this.pbBarrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbBarrack.Name = "pbBarrack";
-            this.pbBarrack.Size = new System.Drawing.Size(87, 76);
+            this.pbBarrack.Size = new System.Drawing.Size(65, 62);
             this.pbBarrack.TabIndex = 2;
             this.pbBarrack.TabStop = false;
             this.pbBarrack.Visible = false;
             // 
             // btnF16
             // 
-            this.btnF16.Location = new System.Drawing.Point(1193, 400);
-            this.btnF16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnF16.Location = new System.Drawing.Point(843, 344);
+            this.btnF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnF16.Name = "btnF16";
-            this.btnF16.Size = new System.Drawing.Size(75, 23);
+            this.btnF16.Size = new System.Drawing.Size(154, 42);
             this.btnF16.TabIndex = 3;
             this.btnF16.Text = "F16";
             this.btnF16.UseVisualStyleBackColor = true;
@@ -104,10 +108,10 @@
             // 
             // btn747
             // 
-            this.btn747.Location = new System.Drawing.Point(1193, 439);
-            this.btn747.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn747.Location = new System.Drawing.Point(843, 255);
+            this.btn747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn747.Name = "btn747";
-            this.btn747.Size = new System.Drawing.Size(75, 23);
+            this.btn747.Size = new System.Drawing.Size(154, 42);
             this.btn747.TabIndex = 4;
             this.btn747.Text = "747";
             this.btn747.UseVisualStyleBackColor = true;
@@ -115,10 +119,10 @@
             // 
             // btnBomber
             // 
-            this.btnBomber.Location = new System.Drawing.Point(1193, 472);
-            this.btnBomber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBomber.Location = new System.Drawing.Point(843, 301);
+            this.btnBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBomber.Name = "btnBomber";
-            this.btnBomber.Size = new System.Drawing.Size(75, 23);
+            this.btnBomber.Size = new System.Drawing.Size(154, 42);
             this.btnBomber.TabIndex = 5;
             this.btnBomber.Text = "Bomber";
             this.btnBomber.UseVisualStyleBackColor = true;
@@ -128,10 +132,10 @@
             // 
             this.pbStealthBomber.BackColor = System.Drawing.Color.White;
             this.pbStealthBomber.Image = ((System.Drawing.Image)(resources.GetObject("pbStealthBomber.Image")));
-            this.pbStealthBomber.Location = new System.Drawing.Point(757, 400);
-            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbStealthBomber.Location = new System.Drawing.Point(568, 325);
+            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbStealthBomber.Name = "pbStealthBomber";
-            this.pbStealthBomber.Size = new System.Drawing.Size(105, 75);
+            this.pbStealthBomber.Size = new System.Drawing.Size(79, 61);
             this.pbStealthBomber.TabIndex = 6;
             this.pbStealthBomber.TabStop = false;
             this.pbStealthBomber.Click += new System.EventHandler(this.pbStealthBomber_Click);
@@ -140,10 +144,10 @@
             // 
             this.pbF16.BackColor = System.Drawing.Color.White;
             this.pbF16.Image = ((System.Drawing.Image)(resources.GetObject("pbF16.Image")));
-            this.pbF16.Location = new System.Drawing.Point(757, 400);
-            this.pbF16.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbF16.Location = new System.Drawing.Point(568, 325);
+            this.pbF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbF16.Name = "pbF16";
-            this.pbF16.Size = new System.Drawing.Size(105, 75);
+            this.pbF16.Size = new System.Drawing.Size(79, 61);
             this.pbF16.TabIndex = 7;
             this.pbF16.TabStop = false;
             // 
@@ -151,10 +155,10 @@
             // 
             this.pb747.BackColor = System.Drawing.Color.White;
             this.pb747.Image = ((System.Drawing.Image)(resources.GetObject("pb747.Image")));
-            this.pb747.Location = new System.Drawing.Point(757, 400);
-            this.pb747.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pb747.Location = new System.Drawing.Point(568, 325);
+            this.pb747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pb747.Name = "pb747";
-            this.pb747.Size = new System.Drawing.Size(105, 75);
+            this.pb747.Size = new System.Drawing.Size(79, 61);
             this.pb747.TabIndex = 8;
             this.pb747.TabStop = false;
             // 
@@ -209,10 +213,10 @@
             // pbHospital
             // 
             this.pbHospital.Image = ((System.Drawing.Image)(resources.GetObject("pbHospital.Image")));
-            this.pbHospital.Location = new System.Drawing.Point(385, 164);
-            this.pbHospital.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pbHospital.Location = new System.Drawing.Point(289, 133);
+            this.pbHospital.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbHospital.Name = "pbHospital";
-            this.pbHospital.Size = new System.Drawing.Size(87, 76);
+            this.pbHospital.Size = new System.Drawing.Size(65, 62);
             this.pbHospital.TabIndex = 11;
             this.pbHospital.TabStop = false;
             this.pbHospital.Visible = false;
@@ -231,10 +235,10 @@
             // pbArmory
             // 
             this.pbArmory.Image = ((System.Drawing.Image)(resources.GetObject("pbArmory.Image")));
-            this.pbArmory.Location = new System.Drawing.Point(311, 82);
-            this.pbArmory.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pbArmory.Location = new System.Drawing.Point(233, 67);
+            this.pbArmory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbArmory.Name = "pbArmory";
-            this.pbArmory.Size = new System.Drawing.Size(87, 76);
+            this.pbArmory.Size = new System.Drawing.Size(65, 62);
             this.pbArmory.TabIndex = 13;
             this.pbArmory.TabStop = false;
             this.pbArmory.Visible = false;
@@ -262,29 +266,48 @@
             // pbHeadquaters
             // 
             this.pbHeadquaters.Image = ((System.Drawing.Image)(resources.GetObject("pbHeadquaters.Image")));
-            this.pbHeadquaters.Location = new System.Drawing.Point(277, 197);
-            this.pbHeadquaters.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pbHeadquaters.Location = new System.Drawing.Point(208, 160);
+            this.pbHeadquaters.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbHeadquaters.Name = "pbHeadquaters";
-            this.pbHeadquaters.Size = new System.Drawing.Size(87, 76);
+            this.pbHeadquaters.Size = new System.Drawing.Size(65, 62);
             this.pbHeadquaters.TabIndex = 10;
             this.pbHeadquaters.TabStop = false;
             this.pbHeadquaters.Visible = false;
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(1193, 512);
+            this.btnStart.Location = new System.Drawing.Point(843, 447);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(206, 62);
+            this.btnStart.Size = new System.Drawing.Size(154, 50);
             this.btnStart.TabIndex = 14;
             this.btnStart.Text = "Start Simulation";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click_1);
             // 
+            // pbtest
+            // 
+            this.pbtest.Location = new System.Drawing.Point(568, 308);
+            this.pbtest.Name = "pbtest";
+            this.pbtest.Size = new System.Drawing.Size(100, 78);
+            this.pbtest.TabIndex = 15;
+            this.pbtest.TabStop = false;
+            // 
+            // pbCannon
+            // 
+            this.pbCannon.Location = new System.Drawing.Point(402, 270);
+            this.pbCannon.Name = "pbCannon";
+            this.pbCannon.Size = new System.Drawing.Size(53, 43);
+            this.pbCannon.TabIndex = 16;
+            this.pbCannon.TabStop = false;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1841, 783);
+            this.ClientSize = new System.Drawing.Size(1381, 636);
+            this.Controls.Add(this.pbCannon);
+            this.Controls.Add(this.pbtest);
             this.Controls.Add(this.pbStealthBomber);
             this.Controls.Add(this.pbF16);
             this.Controls.Add(this.pb747);
@@ -297,7 +320,7 @@
             this.Controls.Add(this.btnF16);
             this.Controls.Add(this.pbBarrack);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -316,6 +339,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbtest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -346,6 +371,8 @@
         private System.Windows.Forms.PictureBox pbCannon1;
         private System.Windows.Forms.PictureBox pbHeadquaters;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.PictureBox pbtest;
+        private System.Windows.Forms.PictureBox pbCannon;
     }
 }
 
