@@ -126,11 +126,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-
-        private void btnStart_Click(object sender, EventArgs e)
+        private void btnStart_Click_1(object sender, EventArgs e)
         {
-
-
 
             timerLeft.Start();
             timerTop.Start();

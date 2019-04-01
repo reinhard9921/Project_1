@@ -46,13 +46,13 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnStart = new System.Windows.Forms.Button();
             this.pbHospital = new System.Windows.Forms.PictureBox();
             this.pbTankDepo = new System.Windows.Forms.PictureBox();
             this.pbArmory = new System.Windows.Forms.PictureBox();
             this.pbConnon1 = new System.Windows.Forms.PictureBox();
             this.pbCannon1 = new System.Windows.Forms.PictureBox();
             this.pbHeadquaters = new System.Windows.Forms.PictureBox();
+            this.btnStart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(17, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1099, 594);
             this.pictureBox1.TabIndex = 1;
@@ -206,17 +206,6 @@
             this.pictureBox6.TabIndex = 12;
             this.pictureBox6.TabStop = false;
             // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(895, 422);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(195, 46);
-            this.btnStart.TabIndex = 9;
-            this.btnStart.Text = "Start Simulation";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // pbHospital
             // 
             this.pbHospital.Image = ((System.Drawing.Image)(resources.GetObject("pbHospital.Image")));
@@ -281,25 +270,33 @@
             this.pbHeadquaters.TabStop = false;
             this.pbHeadquaters.Visible = false;
             // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(1193, 512);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(206, 62);
+            this.btnStart.TabIndex = 14;
+            this.btnStart.Text = "Start Simulation";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1841, 783);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.pb747);
-            this.Controls.Add(this.pbF16);
             this.Controls.Add(this.pbStealthBomber);
+            this.Controls.Add(this.pbF16);
+            this.Controls.Add(this.pb747);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.pbArmory);
+            this.Controls.Add(this.pbHeadquaters);
+            this.Controls.Add(this.pbHospital);
             this.Controls.Add(this.btnBomber);
             this.Controls.Add(this.btn747);
             this.Controls.Add(this.btnF16);
             this.Controls.Add(this.pbBarrack);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnStart);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -342,13 +339,13 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pbHospital;
         private System.Windows.Forms.PictureBox pbTankDepo;
         private System.Windows.Forms.PictureBox pbArmory;
         private System.Windows.Forms.PictureBox pbConnon1;
         private System.Windows.Forms.PictureBox pbCannon1;
         private System.Windows.Forms.PictureBox pbHeadquaters;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
