@@ -59,34 +59,68 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            
+
+            int x = 568;
+            int y = 325;
+
+            //while (//Run tot hy by die base is die base se x = 220 en y = 42)
+            //{
+            //    x -= 3;45, 53
+            //    y -= 1;
+            pb.Location = new Point(x, y);
+
             timerLeft.Start();
             timerTop.Start();
+
+            //}
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            pb.Left -= 1;
+            if (pb.Location.X > 45)
+            {
+                pb.Left -= 2;
+            }
+
         }
 
         private void timerTop_Tick(object sender, EventArgs e)
         {
-            pb.Top -= 1;
+            if (pb.Location.Y > 53)
+            {
+                pb.Top -= 1;
+            }
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void timerRight_Tick(object sender, EventArgs e)
         {
+            pb.Left += 1;
 
-            int x = 1010;
-            int y = 500;
+        }
 
-            while (//Run tot hy by die base is die base se x = 220 en y = 42)
-            {
-                x -= 3;
-                y -= 1;
-                pb747.Location = new Point(x, y);
+        private void timerDown_Tick(object sender, EventArgs e)
+        {
+            pb.Top += 1;
+
+        }
+
+        private void btnStart_Click_1(object sender, EventArgs e)
+        {
+            //timerLeft.Start();
+            //timerTop.Start();
+
+            //int x = 1010;
+            //int y = 500;
+
+            //while (//Run tot hy by die base is die base se x = 220 en y = 42)
+            //{
+            //    x -= 3;
+            //    y -= 1;
+            //    pb747.Location = new Point(x, y);
 
 
-            }
+            //}
         }
     }
 }
