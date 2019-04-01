@@ -20,8 +20,32 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         PictureBox pb = null;
 
+        public void unhide(PictureBox pb)
+        {
+            if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
+            {
+                pbArmory.Visible = true;
+            }
+            if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
+            {
+                pbBarrack.Visible = true;
+            }
+            if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
+            {
+                pbHeadquaters.Visible = true;
+            }
+            if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
+            {
+                pbHospital.Visible = true;
+            }
+            if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
+            {
+                pbTankDepo.Visible = true;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+
             pb747.Hide();
             pbF16.Hide();
             pbStealthBomber.Hide();

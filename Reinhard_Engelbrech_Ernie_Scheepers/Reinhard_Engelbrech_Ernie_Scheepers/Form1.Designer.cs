@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbBarrack = new System.Windows.Forms.PictureBox();
             this.btnF16 = new System.Windows.Forms.Button();
             this.btn747 = new System.Windows.Forms.Button();
             this.btnBomber = new System.Windows.Forms.Button();
@@ -47,12 +47,14 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pbHeadquaters = new System.Windows.Forms.PictureBox();
+            this.pbHospital = new System.Windows.Forms.PictureBox();
+            this.pbTankDepo = new System.Windows.Forms.PictureBox();
+            this.pbArmory = new System.Windows.Forms.PictureBox();
+            this.pbConnon1 = new System.Windows.Forms.PictureBox();
+            this.pbCannon1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarrack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbF16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb747)).BeginInit();
@@ -60,10 +62,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHospital)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTankDepo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -76,15 +80,16 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // pbBarrack
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(148, 88);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(65, 62);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            this.pbBarrack.Image = ((System.Drawing.Image)(resources.GetObject("pbBarrack.Image")));
+            this.pbBarrack.Location = new System.Drawing.Point(148, 88);
+            this.pbBarrack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbBarrack.Name = "pbBarrack";
+            this.pbBarrack.Size = new System.Drawing.Size(65, 62);
+            this.pbBarrack.TabIndex = 2;
+            this.pbBarrack.TabStop = false;
+            this.pbBarrack.Visible = false;
             // 
             // btnF16
             // 
@@ -211,55 +216,81 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // pictureBox7
+            // pbHeadquaters
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(289, 201);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(65, 62);
-            this.pictureBox7.TabIndex = 10;
-            this.pictureBox7.TabStop = false;
+            this.pbHeadquaters.Image = ((System.Drawing.Image)(resources.GetObject("pbHeadquaters.Image")));
+            this.pbHeadquaters.Location = new System.Drawing.Point(289, 201);
+            this.pbHeadquaters.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbHeadquaters.Name = "pbHeadquaters";
+            this.pbHeadquaters.Size = new System.Drawing.Size(65, 62);
+            this.pbHeadquaters.TabIndex = 10;
+            this.pbHeadquaters.TabStop = false;
+            this.pbHeadquaters.Visible = false;
             // 
-            // pictureBox8
+            // pbHospital
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(278, 119);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(65, 62);
-            this.pictureBox8.TabIndex = 11;
-            this.pictureBox8.TabStop = false;
+            this.pbHospital.Image = ((System.Drawing.Image)(resources.GetObject("pbHospital.Image")));
+            this.pbHospital.Location = new System.Drawing.Point(289, 133);
+            this.pbHospital.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbHospital.Name = "pbHospital";
+            this.pbHospital.Size = new System.Drawing.Size(65, 62);
+            this.pbHospital.TabIndex = 11;
+            this.pbHospital.TabStop = false;
+            this.pbHospital.Visible = false;
             // 
-            // pictureBox9
+            // pbTankDepo
             // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(193, 154);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(65, 62);
-            this.pictureBox9.TabIndex = 12;
-            this.pictureBox9.TabStop = false;
+            this.pbTankDepo.Image = ((System.Drawing.Image)(resources.GetObject("pbTankDepo.Image")));
+            this.pbTankDepo.Location = new System.Drawing.Point(193, 154);
+            this.pbTankDepo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbTankDepo.Name = "pbTankDepo";
+            this.pbTankDepo.Size = new System.Drawing.Size(65, 62);
+            this.pbTankDepo.TabIndex = 12;
+            this.pbTankDepo.TabStop = false;
+            this.pbTankDepo.Visible = false;
             // 
-            // pictureBox10
+            // pbArmory
             // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(233, 67);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(65, 62);
-            this.pictureBox10.TabIndex = 13;
-            this.pictureBox10.TabStop = false;
+            this.pbArmory.Image = ((System.Drawing.Image)(resources.GetObject("pbArmory.Image")));
+            this.pbArmory.Location = new System.Drawing.Point(233, 67);
+            this.pbArmory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbArmory.Name = "pbArmory";
+            this.pbArmory.Size = new System.Drawing.Size(65, 62);
+            this.pbArmory.TabIndex = 13;
+            this.pbArmory.TabStop = false;
+            this.pbArmory.Visible = false;
+            // 
+            // pbConnon1
+            // 
+            this.pbConnon1.Image = ((System.Drawing.Image)(resources.GetObject("pbConnon1.Image")));
+            this.pbConnon1.Location = new System.Drawing.Point(1137, 17);
+            this.pbConnon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbConnon1.Name = "pbConnon1";
+            this.pbConnon1.Size = new System.Drawing.Size(65, 62);
+            this.pbConnon1.TabIndex = 14;
+            this.pbConnon1.TabStop = false;
+            // 
+            // pbCannon1
+            // 
+            this.pbCannon1.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon1.Image")));
+            this.pbCannon1.Location = new System.Drawing.Point(1218, 17);
+            this.pbCannon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pbCannon1.Name = "pbCannon1";
+            this.pbCannon1.Size = new System.Drawing.Size(65, 62);
+            this.pbCannon1.TabIndex = 15;
+            this.pbCannon1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1841, 783);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pbCannon1);
+            this.Controls.Add(this.pbConnon1);
+            this.Controls.Add(this.pbArmory);
+            this.Controls.Add(this.pbTankDepo);
+            this.Controls.Add(this.pbHospital);
+            this.Controls.Add(this.pbHeadquaters);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pb747);
             this.Controls.Add(this.pbF16);
@@ -267,14 +298,14 @@
             this.Controls.Add(this.btnBomber);
             this.Controls.Add(this.btn747);
             this.Controls.Add(this.btnF16);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pbBarrack);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarrack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbF16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb747)).EndInit();
@@ -282,10 +313,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHospital)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTankDepo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,7 +327,7 @@
 
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbBarrack;
         private System.Windows.Forms.Button btnF16;
         private System.Windows.Forms.Button btn747;
         private System.Windows.Forms.Button btnBomber;
@@ -310,10 +343,12 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pbHeadquaters;
+        private System.Windows.Forms.PictureBox pbHospital;
+        private System.Windows.Forms.PictureBox pbTankDepo;
+        private System.Windows.Forms.PictureBox pbArmory;
+        private System.Windows.Forms.PictureBox pbConnon1;
+        private System.Windows.Forms.PictureBox pbCannon1;
     }
 }
 
