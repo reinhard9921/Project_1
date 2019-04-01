@@ -86,7 +86,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            pb.Left -= 2;
+            if (pb.Location.Y > 69)
+            {
+                pb.Left -= 2;
+
+            }
+            else
+            {
+                timerLeft.Stop();
+            }
+
         }
 
         private void timerTop_Tick(object sender, EventArgs e)
@@ -94,6 +103,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Location.Y > 53)
             {
                 pb.Top -= 1;
+            }
+            else
+            {
+                timerTop.Stop();
             }
         }
 
@@ -103,17 +116,23 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void btnStart_Click_1(object sender, EventArgs e)
         {
 
-            int x = 1010;
-            int y = 500;
+        //    int x = 1010;
+        //    int y = 500;
 
-            pb.Location = new Point(x, y);
+            ////pb.Location = new Point(x, y);
 
+            //timerLeft.Start();
+            //timerTop.Start();
+
+            }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
             timerLeft.Start();
             timerTop.Start();
-
         }
     }
-}
+    }
