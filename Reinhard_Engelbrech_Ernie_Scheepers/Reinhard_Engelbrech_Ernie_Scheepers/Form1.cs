@@ -89,7 +89,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Location.Y > 69)
             {
                 pb.Left -= 2;
-
+                unhide(pb);
             }
             else
             {
@@ -103,6 +103,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Location.Y > 53)
             {
                 pb.Top -= 1;
+                unhide(pb);
             }
             else
             {
