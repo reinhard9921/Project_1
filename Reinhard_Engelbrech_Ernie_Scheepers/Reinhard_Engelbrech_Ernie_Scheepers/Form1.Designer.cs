@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -38,6 +39,10 @@
             this.pbStealthBomber = new System.Windows.Forms.PictureBox();
             this.pbF16 = new System.Windows.Forms.PictureBox();
             this.pb747 = new System.Windows.Forms.PictureBox();
+            this.timerLeft = new System.Windows.Forms.Timer(this.components);
+            this.timerTop = new System.Windows.Forms.Timer(this.components);
+            this.timerRight = new System.Windows.Forms.Timer(this.components);
+            this.timerDown = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
@@ -48,12 +53,13 @@
             // btnStart
             // 
             this.btnStart.Location = new System.Drawing.Point(895, 421);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(136, 54);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Start Simulation";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // pictureBox1
             // 
@@ -68,7 +74,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(298, 31);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(49, 50);
             this.pictureBox2.TabIndex = 2;
@@ -77,7 +83,7 @@
             // btnF16
             // 
             this.btnF16.Location = new System.Drawing.Point(895, 314);
-            this.btnF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnF16.Margin = new System.Windows.Forms.Padding(2);
             this.btnF16.Name = "btnF16";
             this.btnF16.Size = new System.Drawing.Size(56, 19);
             this.btnF16.TabIndex = 3;
@@ -88,7 +94,7 @@
             // btn747
             // 
             this.btn747.Location = new System.Drawing.Point(895, 353);
-            this.btn747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn747.Margin = new System.Windows.Forms.Padding(2);
             this.btn747.Name = "btn747";
             this.btn747.Size = new System.Drawing.Size(56, 19);
             this.btn747.TabIndex = 4;
@@ -99,7 +105,7 @@
             // btnBomber
             // 
             this.btnBomber.Location = new System.Drawing.Point(895, 387);
-            this.btnBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBomber.Margin = new System.Windows.Forms.Padding(2);
             this.btnBomber.Name = "btnBomber";
             this.btnBomber.Size = new System.Drawing.Size(56, 19);
             this.btnBomber.TabIndex = 5;
@@ -112,7 +118,7 @@
             this.pbStealthBomber.BackColor = System.Drawing.Color.White;
             this.pbStealthBomber.Image = ((System.Drawing.Image)(resources.GetObject("pbStealthBomber.Image")));
             this.pbStealthBomber.Location = new System.Drawing.Point(757, 400);
-            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2);
             this.pbStealthBomber.Name = "pbStealthBomber";
             this.pbStealthBomber.Size = new System.Drawing.Size(79, 61);
             this.pbStealthBomber.TabIndex = 6;
@@ -124,7 +130,7 @@
             this.pbF16.BackColor = System.Drawing.Color.White;
             this.pbF16.Image = ((System.Drawing.Image)(resources.GetObject("pbF16.Image")));
             this.pbF16.Location = new System.Drawing.Point(757, 400);
-            this.pbF16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbF16.Margin = new System.Windows.Forms.Padding(2);
             this.pbF16.Name = "pbF16";
             this.pbF16.Size = new System.Drawing.Size(79, 61);
             this.pbF16.TabIndex = 7;
@@ -135,11 +141,27 @@
             this.pb747.BackColor = System.Drawing.Color.White;
             this.pb747.Image = ((System.Drawing.Image)(resources.GetObject("pb747.Image")));
             this.pb747.Location = new System.Drawing.Point(757, 400);
-            this.pb747.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pb747.Margin = new System.Windows.Forms.Padding(2);
             this.pb747.Name = "pb747";
             this.pb747.Size = new System.Drawing.Size(79, 61);
             this.pb747.TabIndex = 8;
             this.pb747.TabStop = false;
+            // 
+            // timerLeft
+            // 
+            this.timerLeft.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerTop
+            // 
+            this.timerTop.Tick += new System.EventHandler(this.timerTop_Tick);
+            // 
+            // timerRight
+            // 
+            this.timerRight.Tick += new System.EventHandler(this.timerRight_Tick);
+            // 
+            // timerDown
+            // 
+            this.timerDown.Tick += new System.EventHandler(this.timerDown_Tick);
             // 
             // Form1
             // 
@@ -179,6 +201,10 @@
         private System.Windows.Forms.PictureBox pbStealthBomber;
         private System.Windows.Forms.PictureBox pbF16;
         private System.Windows.Forms.PictureBox pb747;
+        private System.Windows.Forms.Timer timerLeft;
+        private System.Windows.Forms.Timer timerTop;
+        private System.Windows.Forms.Timer timerRight;
+        private System.Windows.Forms.Timer timerDown;
     }
 }
 
