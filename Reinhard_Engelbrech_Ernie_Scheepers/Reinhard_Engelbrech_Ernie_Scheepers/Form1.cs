@@ -16,8 +16,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         public Form1()
         {
             InitializeComponent();
+
         }
 
+        int TimerFuel = 100;
         PictureBox pb = null;
 
         public void unhide(PictureBox pb)
@@ -45,7 +47,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            prbFuel.Value = 100;
             pb747.Hide();
             pbF16.Hide();
             pbStealthBomber.Hide();
@@ -95,29 +97,46 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (pb.Location.Y > 69)
+            try
             {
-                pb.Left -= 2;
-                unhide(pb);
+                if (pb.Location.Y > 69)
+                {
+                    pb.Left -= 2;
+                    unhide(pb);
+                }
+                else
+                {
+                    timerLeft.Stop();
+                }
             }
-            else
+            catch (Exception)
             {
-                timerLeft.Stop();
+
+                MessageBox.Show("Please choose a plane to fly with");
             }
 
         }
 
         private void timerTop_Tick(object sender, EventArgs e)
         {
-            if (pb.Location.Y > 53)
+            try
             {
-                pb.Top -= 1;
-                unhide(pb);
+                if (pb.Location.Y > 53)
+                {
+                    pb.Top -= 1;
+                    unhide(pb);
+                }
+                else
+                {
+                    timerTop.Stop();
+                }
             }
-            else
+            catch (Exception)
             {
-                timerTop.Stop();
+
+                MessageBox.Show("Please choose a plane to fly with");
             }
+
         }
 
         private void timerRight_Tick(object sender, EventArgs e)
@@ -128,9 +147,39 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-
+            tmrFuel.Start();
             timerLeft.Start();
             timerTop.Start();
+        }
+
+        private void pb747_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbF16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tmrFuel_Tick(object sender, EventArgs e)
+        {
+            if (TimerFuel >= 0)
+            {
+                prbFuel.Value -= 2;
+                TimerFuel -= 1;
+            }
+            else
+            {
+                tmrFuel.Stop();
+
+            }
+
         }
     }
 }
