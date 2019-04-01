@@ -49,5 +49,21 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
 
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+            int x = 1010;
+            int y = 500;
+
+            while (//Run tot hy by die base is die base se x = 220 en y = 42)
+            {
+                x -= 3;
+                y -= 1;
+                pb747.Location = new Point(x, y);
+
+
+            }
+        }
     }
 }
