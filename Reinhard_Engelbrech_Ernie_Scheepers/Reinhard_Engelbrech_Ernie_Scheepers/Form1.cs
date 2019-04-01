@@ -57,6 +57,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Show();
             pbStealthBomber.Hide();
             pb = pbF16;
+            int x = 757;
+            int y = 400;
+            pb.Location = new Point(x, y);
 
         }
 
@@ -66,6 +69,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Hide();
             pb = pb747;
+            int x = 757;
+            int y = 400;
+            pb.Location = new Point(x, y);
         }
 
         private void btnBomber_Click(object sender, EventArgs e)
@@ -74,6 +80,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Show();
             pb = pbStealthBomber;
+            int x = 757;
+            int y = 400;
+            pb.Location = new Point(x, y);
         }
 
         private void pbStealthBomber_Click(object sender, EventArgs e)
@@ -81,8 +90,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-        
- 
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -116,23 +125,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-        private void btnStart_Click_1(object sender, EventArgs e)
-        {
-
-        //    int x = 1010;
-        //    int y = 500;
-
-            ////pb.Location = new Point(x, y);
-
-            //timerLeft.Start();
-            //timerTop.Start();
-
-            }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
+
+
             timerLeft.Start();
             timerTop.Start();
         }
     }
-    }
+}
