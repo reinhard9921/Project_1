@@ -21,6 +21,11 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         int TimerFuel = 100;
         PictureBox pb = null;
+        List<Point> lpath = new List<Point>();
+        int y = 0;
+        int x = 0;
+        int yEnd = 53;
+        int xEnd = 69;
 
         public void unhide(PictureBox pb)
         {
@@ -59,8 +64,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Show();
             pbStealthBomber.Hide();
             pb = pbF16;
-            int x = 757;
-            int y = 400;
+            x = 757;
+            y = 400;
             pb.Location = new Point(x, y);
 
         }
@@ -71,8 +76,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Hide();
             pb = pb747;
-            int x = 757;
-            int y = 400;
+            x = 757;
+            y = 400;
             pb.Location = new Point(x, y);
         }
 
@@ -82,8 +87,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Show();
             pb = pbStealthBomber;
-            int x = 757;
-            int y = 400;
+            x = 757;
+            y = 400;
             pb.Location = new Point(x, y);
         }
 
@@ -97,45 +102,45 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                if (pb.Location.Y > 69)
-                {
-                    pb.Left -= 2;
-                    unhide(pb);
-                }
-                else
-                {
-                    timerLeft.Stop();
-                }
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    if (pb.Location.X > xEnd)
+            //    {
+            //        pb.Left -= 2;
+            //        unhide(pb);
+            //    }
+            //    else
+            //    {
+            //        timerLeft.Stop();
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                MessageBox.Show("Please choose a plane to fly with");
-            }
+            //    MessageBox.Show("Please choose a plane to fly with");
+            //}
 
         }
 
         private void timerTop_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                if (pb.Location.Y > 53)
-                {
-                    pb.Top -= 1;
-                    unhide(pb);
-                }
-                else
-                {
-                    timerTop.Stop();
-                }
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    if (pb.Location.Y > yEnd)
+            //    {
+            //        pb.Top -= 1;
+            //        unhide(pb);
+            //    }
+            //    else
+            //    {
+            //        timerTop.Stop();
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                MessageBox.Show("Please choose a plane to fly with");
-            }
+            //    MessageBox.Show("Please choose a plane to fly with");
+            //}
 
         }
 
@@ -147,9 +152,33 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-            tmrFuel.Start();
-            timerLeft.Start();
-            timerTop.Start();
+            //tmrFuel.Start();
+            //timerLeft.Start();
+            //timerTop.Start();
+            int iCount = xEnd;
+
+            while (iCount < x)
+            {
+                Point point = new Point(iCount, (int)(0.5 * iCount) + 18);
+                lpath.Add(point);
+                iCount += 10;
+            }
+            //for (int i = xEnd; i < x; i++)
+            //{
+            //    Point point = new Point(i, (int)(0.5 * i) + 18);
+            //    lpath.Add(point);
+            //}
+
+            //lpath.Reverse();
+
+            //foreach (Point item in lpath)
+            //{
+            //    pb.Location = item;
+            //    MessageBox.Show(Convert.ToString(pb.Location));
+            //}
+
+            tmrMove.Start();
+
         }
 
         private void pb747_Click(object sender, EventArgs e)
@@ -169,16 +198,38 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void tmrFuel_Tick(object sender, EventArgs e)
         {
-            if (TimerFuel >= 0)
-            {
-                prbFuel.Value -= 2;
-                TimerFuel -= 1;
-            }
-            else
-            {
-                tmrFuel.Stop();
+            //if (TimerFuel >= 0)
+            //{
+            //    prbFuel.Value -= 2;
+            //    TimerFuel -= 1;
+            //}
+            //else
+            //{
+            //    tmrFuel.Stop();
+            //    timerTop.Stop();
+            //    timerLeft.Stop();
+            //}
 
-            }
+        }
+
+        private void tmrMove_Tick(object sender, EventArgs e)
+        {
+            //lpath.Reverse();
+
+            //foreach (Point item in lpath)
+            //{
+            //    pb.Location = item;
+            //    MessageBox.Show(Convert.ToString(pb.Location));
+            //}
+        }
+
+        private void timerDown_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerRight_Tick_1(object sender, EventArgs e)
+        {
 
         }
     }
