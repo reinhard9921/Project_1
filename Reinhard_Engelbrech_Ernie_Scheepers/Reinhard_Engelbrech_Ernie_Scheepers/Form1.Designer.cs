@@ -208,8 +208,8 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(1193, 519);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnStart.Location = new System.Drawing.Point(895, 422);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(195, 46);
             this.btnStart.TabIndex = 9;
@@ -285,10 +285,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 964);
-            this.Controls.Add(this.pbArmory);
-            this.Controls.Add(this.pbHeadquaters);
-            this.Controls.Add(this.pbHospital);
+            this.ClientSize = new System.Drawing.Size(1841, 783);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pb747);
             this.Controls.Add(this.pbF16);
             this.Controls.Add(this.pbStealthBomber);
