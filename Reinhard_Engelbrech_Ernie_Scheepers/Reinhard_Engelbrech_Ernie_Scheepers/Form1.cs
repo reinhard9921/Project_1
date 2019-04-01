@@ -65,7 +65,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            pb.Left -= 1;
+            pb.Left -= 2;
         }
 
         private void timerTop_Tick(object sender, EventArgs e)
@@ -73,20 +73,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pb.Top -= 1;
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void pb747_Click(object sender, EventArgs e)
         {
 
-            int x = 1010;
-            int y = 500;
-
-            while (//Run tot hy by die base is die base se x = 220 en y = 42)
-            {
-                x -= 3;
-                y -= 1;
-                pb747.Location = new Point(x, y);
-
-
-            }
         }
     }
 }
