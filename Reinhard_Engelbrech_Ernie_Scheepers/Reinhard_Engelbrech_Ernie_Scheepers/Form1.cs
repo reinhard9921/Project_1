@@ -85,7 +85,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 {
                     pbHospital.ImageLocation = "Cloud.jpg";
                     Success += hit;
-                    HQ = true;
+                    Hospital = true;
                 }
             }
             if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
