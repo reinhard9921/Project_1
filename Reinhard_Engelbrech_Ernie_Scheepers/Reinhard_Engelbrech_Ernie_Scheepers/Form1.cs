@@ -360,6 +360,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             bool bFoundColision = false;
 
+            MessageBox.Show("Planning safests path...", "Planning", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             for (int i = 0; i < lPoints.Count(); i++)
             {
                 JetMoveCrossThread(lPoints[i]);
@@ -392,6 +394,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             
 
             tMove = new Thread(JetMove);
+
+            MessageBox.Show("Safest path found.\nPreparing for liftoff...", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             tMove.Start();
 
