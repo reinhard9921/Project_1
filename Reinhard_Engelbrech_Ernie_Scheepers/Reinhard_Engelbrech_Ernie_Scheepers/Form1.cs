@@ -357,6 +357,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             try
+
             {
                 if (pb == null)
                 {
