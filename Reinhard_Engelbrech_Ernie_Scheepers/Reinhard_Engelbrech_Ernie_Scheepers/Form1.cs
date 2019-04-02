@@ -47,7 +47,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
-               pbHeadquaters.ImageLocation = "Cloud.jpg";
+                pbHeadquaters.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
@@ -57,52 +57,67 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             {
                 pbTankDepo.ImageLocation = "Cloud.jpg";
             }
-            if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon8.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            if ((pb.Bounds.IntersectsWith(pbCannon.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon2.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon3.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon4.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon5.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon6.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon7.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon8.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon9.Bounds)))
             {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon8.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon9.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tMove.Abort();
+                StopThreads("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void StopThreads(string message, string heading, MessageBoxButtons messageBoxButtons, MessageBoxIcon messageBoxIcon)
+        {
+            tmrFuel.Stop();
+            tmrAltitude.Stop();
+            TmrSpeed.Stop();
+            MessageBox.Show( message,  heading,  messageBoxButtons,  messageBoxIcon);
+
+            tMove.Abort();
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -218,7 +233,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-    private void timerTop_Tick(object sender, EventArgs e)
+        private void timerTop_Tick(object sender, EventArgs e)
         {
             //try
             //{
@@ -582,12 +597,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            
-
-            tmrFuel.Stop();
-            tmrAltitude.Stop();
-            TmrSpeed.Stop();
-            base.OnClosing(e); 
+            StopThreads("Stopping all threads,\nApplication closing", "Application closed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            base.OnClosing(e);
         }
     }
 }
