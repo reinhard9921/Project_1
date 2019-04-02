@@ -269,7 +269,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
 
-            for (int i = endpoint.X; i < beginPoint.X; i += 10)
+            for (int i = endpoint.X; i < beginPoint.X; i += 1)
             {
                 Point point = new Point(i, (int)(i * m + c));
                 lPoints.Add(point);
@@ -575,6 +575,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 }
 
                 //MessageBox.Show("Test");
+
                 Thread.Sleep(100);
             }
         }
