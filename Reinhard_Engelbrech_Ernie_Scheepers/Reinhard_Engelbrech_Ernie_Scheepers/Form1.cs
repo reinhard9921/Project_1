@@ -61,22 +61,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
             {
                 MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             }
             if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
             {
                 MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             }
             if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
             {
                 MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             }
             if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
             {
                 MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-         
+
             }
             if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
             {
@@ -86,7 +86,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
             {
                 MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
- 
+
             }
             if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
             {
@@ -247,14 +247,41 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
+        List<Point> lPoints = new List<Point>();
+
+        Point endpoint = new Point(69, 53);
+        Point beginPoint = new Point(757, 400);
+        decimal m = 0;
+        decimal c = 0;
+
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+            decimal yDiff = beginPoint.Y - endpoint.Y;
+            decimal xDiff = beginPoint.X - endpoint.X;
 
+            m = (yDiff / xDiff);
 
+            c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
+
+            for (int i = endpoint.X; i < beginPoint.X; i += 10)
+            {
+                Point point = new Point(i, (int)(i * m + c));
+                lPoints.Add(point);
+            }
+
+            lPoints.Reverse();
+
+            //tmrMove.Start();
+
+            foreach (Point item in lPoints)
+            {
+                pb.Location = item;
+                MessageBox.Show("Test");
+            }
 
             tmrFuel.Start();
-            timerLeft.Start();
-            timerTop.Start();
+            //timerLeft.Start();
+            //timerTop.Start();
             tmrAltitude.Start();
             TmrSpeed.Start();
 
@@ -511,19 +538,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
+        private void tmrMove_Tick(object sender, EventArgs e)
+        {
+            //foreach (Point item in lPoints)
+            //{
+            //    pb.Location = item;
+            //    MessageBox.Show("Test");
 
-      
-
-
-
-      
-
-
-
-
-
-
-
-
+            //}
+        }
     }
 }
