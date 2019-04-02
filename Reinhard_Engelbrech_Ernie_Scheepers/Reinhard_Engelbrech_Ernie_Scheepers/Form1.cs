@@ -279,23 +279,23 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             Thread tMove = new Thread(jetMove);
 
-            //tMove.Start();
+            tMove.Start();
 
 
             //tmrMove.Start();
             //tmrMove Code start
-            foreach (Point item in lPoints)
-            {
-                crossThreadSolution(item);
+            //foreach (Point item in lPoints)
+            //{
+            //    crossThreadSolution(item);
 
-                if ((item.X <= 485) || (item.Y <= 260))
-                {
+            //    if ((item.X <= 485) || (item.Y <= 260))
+            //    {
 
-                }
+            //    }
 
-                MessageBox.Show("Test");
-                Thread.Sleep(100);
-            }
+            //    MessageBox.Show("Test");
+            //    Thread.Sleep(100);
+            //}
             //tmrMove Code end
 
             tmrFuel.Start();
@@ -552,7 +552,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         public void crossThreadSolution(Point point)
         {
-            if (this.pb.InvokeRequired != true)
+            if (this.pb.InvokeRequired)
             {
                 delCrossThread d = new delCrossThread(crossThreadSolution);
                 this.Invoke(d, point);
