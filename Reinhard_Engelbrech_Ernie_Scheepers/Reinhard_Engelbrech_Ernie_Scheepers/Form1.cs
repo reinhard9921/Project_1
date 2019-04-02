@@ -324,20 +324,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
-        private void btnAddCannon_Click(object sender, EventArgs e)
-        {
-            PictureBox picture = new PictureBox
-            {
-                Name = "Cannon" + CannonNumber,
-                Size = new Size(60, 60),
-                Location = new Point(100, 100),
-                Image = Image.FromFile("Cannon1.png"),
-            };
-            Guns.Add(pb);
-            this.Controls.Add(pb);
-
-        }
-
 
 
         Point dragPoint = Point.Empty;
