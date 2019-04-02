@@ -43,7 +43,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         Random rnd = new Random();
         int FlightSpeed;
 
-        public void unhide(PictureBox pb)
+        public void Unhide(PictureBox pb)
         {
             if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
             {
@@ -528,7 +528,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                             iFirstLinePos = k;
                         }
                         newpoint = lRight[k];
-                        newpoint.X += 10;
+                        newpoint.X += 15;
                         lRight[k] = newpoint;
                     }
                 }
@@ -541,12 +541,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                 foreach (Point item in lFirstLine)
                 {
-                    lNew.Add(item);
-
                     if (item == lRight[iLastLinePos])
                     {
                         break;
                     }
+
+                    lNew.Add(item);
+
+                    
                 }
 
                 //foreach (Point item in lRight)
@@ -592,7 +594,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             c = (decimal)(pBegin.Y + (-1 * ((m) * (pBegin.X))));
 
-            for (int i = pEnd.X; i < pBegin.X; i += FlightSpeed)
+            for (int i = pEnd.X; i < pBegin.X; i += 10)
             {
                 Point point = new Point(i, (int)(i * m + c));
                 lNew.Add(point);
@@ -875,7 +877,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 {
                     BaseCampVisibility();
                 }
-                unhide(pb);
+                Unhide(pb);
                 Thread.Sleep(100);
             }
 
