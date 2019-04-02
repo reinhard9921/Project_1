@@ -274,27 +274,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             tMove.Start();
 
-
-            //tmrMove.Start();
-            //tmrMove Code start
-            //foreach (Point item in lPoints)
-            //{
-            //    crossThreadSolution(item);
-
-            if ((item.X <= 485) || (item.Y <= 260))
-            {
-                pbArmory.Visible = true;
-                pbBarrack.Visible = true;
-                pbHeadquaters.Visible = true;
-                pbHospital.Visible = true;
-                pbTankDepo.Visible = true;
-            }
-
-            //    MessageBox.Show("Test");
-            //    Thread.Sleep(100);
-            //}
-            //tmrMove Code end
-
             tmrFuel.Start();
             //timerLeft.Start();
             //timerTop.Start();
@@ -568,7 +547,11 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                 if ((item.X <= 485) || (item.Y <= 260))
                 {
-
+                    pbArmory.Visible = true;
+                    pbBarrack.Visible = true;
+                    pbHeadquaters.Visible = true;
+                    pbHospital.Visible = true;
+                    pbTankDepo.Visible = true;
                 }
 
                 //MessageBox.Show("Test");
