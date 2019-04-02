@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace Reinhard_Engelbrech_Ernie_Scheepers
 {
@@ -33,29 +34,70 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         double WeightLoaded;
         double WeightUnloaded;
         int fuel;
-
+        int hit;
+        int Success;
+        bool HQ;
+        bool Hospital;
+        bool barracks;
+        bool armory;
+        Random rnd = new Random();
+        int FlightSpeed;
 
         public void unhide(PictureBox pb)
         {
             if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
             {
-                pbArmory.ImageLocation = "Cloud.jpg";
+
+                hit = rnd.Next(8);
+                if (hit == 1)
+                {
+                    pbArmory.ImageLocation = "Cloud.jpg";
+                    Success += hit;
+                    armory = true;
+                }
+
             }
             if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
             {
-                pbBarrack.ImageLocation = "Cloud.jpg";
+
+                hit = rnd.Next(20 );
+                if (hit == 1)
+                {
+                    pbBarrack.ImageLocation = "Cloud.jpg";
+                    Success += hit;
+                    barracks = true;
+                }
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
-                pbHeadquaters.ImageLocation = "Cloud.jpg";
+                hit = rnd.Next(2);
+                if (hit == 1)
+                {
+                    pbHeadquaters.ImageLocation = "Cloud.jpg";
+                    Success += hit;
+                    HQ = true;
+                }
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
-                pbHospital.ImageLocation = "Cloud.jpg";
+                hit = rnd.Next(25);
+                if (hit == 1)
+                {
+                    pbHospital.ImageLocation = "Cloud.jpg";
+                    Success += hit;
+                    Hospital = true;
+                }
             }
             if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
             {
-                pbTankDepo.ImageLocation = "Cloud.jpg";
+                hit = rnd.Next(20);
+                if (hit == 1)
+                {
+                    pbTankDepo.ImageLocation = "Cloud.jpg";
+                    Success += hit;
+                    barracks = true;
+                }
+ 
             }
             //if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
             //{
@@ -123,7 +165,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            lstReports.Items.Clear();
             pb747.Hide();
             pbF16.Hide();
             pbStealthBomber.Hide();
@@ -146,6 +188,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                     altitude = item.TopAltitude;
                     speed = item.MaxSpeed;
+                    FlightSpeed = 3;
                     WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
@@ -173,6 +216,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                     altitude = item.TopAltitude;
                     speed = item.MaxSpeed;
+                    FlightSpeed = 1;
                     WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
@@ -199,7 +243,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                     altitude = item.TopAltitude;
                     speed = item.MaxSpeed;
-                    WeightLoaded = item.WeightWithInventory;
+                    FlightSpeed = 1; WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
                 }
@@ -282,7 +326,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
 
-            for (int i = endpoint.X; i < beginPoint.X; i += 10)
+            for (int i = endpoint.X; i < beginPoint.X; i += FlightSpeed)
             {
                 Point point = new Point(i, (int)(i * m + c));
                 lPoints.Add(point);
@@ -305,17 +349,24 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             tmrAltitude.Start();
             TmrSpeed.Start();
 
+
+        }
+
+
+
+        private void tmrFuel_Tick(object sender, EventArgs e)
+        {
+            int devider = 1;
             if (Plane == "Spitfire")
             {
-
+                devider = Convert.ToInt32(WeightLoaded / 1000);
             }
-
-            if (Plane == "F-16 Falcon")
+            else if (Plane ==  "F-16 Falcon")
             {
 
+                devider = Convert.ToInt32(WeightLoaded / 2000);
             }
-
-            if (Plane == "de Haviland")
+            else if (Plane ==  "de Haviland")
             {
 
             }
@@ -370,7 +421,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             if (TimerFuel >= 0)
             {
-                prbFuel.Value -= Convert.ToInt32(WeightLoaded / 1000);
+                prbFuel.Value -= devider;
                 TimerFuel -= 1;
             }
             else
@@ -653,5 +704,54 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             StopThreads("Stopping all threads,\nApplication closing", "Application closed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             base.OnClosing(e);
         }
+
+        public void DisplayReport()
+        {
+
+            FileStream fs = new FileStream("Report.txt", FileMode.Create, FileAccess.ReadWrite);
+            StreamWriter writer = new StreamWriter(fs);
+
+            writer.WriteLine("Success Rate of the Mission: " + Success + "%");
+            writer.WriteLine("Buildings that was hit: ");
+            if (HQ == true)
+            {
+                writer.WriteLine("Headquaters at Coordinates " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
+            }
+            if (Hospital == true)
+            {
+                writer.WriteLine("Hospital at Coordinates " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
+            }
+            if (barracks == true)
+            {
+                writer.WriteLine("Barracks at Coordinates " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
+            }
+            if (armory == true)
+            {
+                writer.WriteLine("Armory at Coordinates " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
+            }
+
+
+            //Add Line for object avoided
+
+
+            writer.WriteLine("Plane That Was Chosen Was The: " + Plane);
+            writer.WriteLine("Invintory still Full");
+            writer.WriteLine("Amount of Fuel Left " + prbFuel.Value + "l");
+
+        }
+
+        public void DisplayReportOnEdit()
+        {
+            FileStream fs = new FileStream("Report.txt", FileMode.Create, FileAccess.ReadWrite);
+            StreamReader reader = new StreamReader(fs);
+
+            string sline = reader.ReadLine();
+            while (!reader.EndOfStream)
+            {
+                lstReports.Items.Add(sline);
+                sline = reader.ReadLine();
+            }
+        }
+
     }
 }
