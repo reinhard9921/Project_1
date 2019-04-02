@@ -112,7 +112,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             tmrFuel.Stop();
             tmrAltitude.Stop();
             TmrSpeed.Stop();
-            MessageBox.Show( message,  heading,  messageBoxButtons,  messageBoxIcon);
+            MessageBox.Show(message, heading, messageBoxButtons, messageBoxIcon);
 
             if (tMove != null)
             {
@@ -290,9 +290,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             lPoints.Reverse();
 
-            tMove = new Thread(jetMove);
 
-            tMove.Start();
+            Thread tTest = new Thread(JetTest);
+
+            tTest.Start();
+
+
+
+            //tMove = new Thread(JetMove);
+
+            //tMove.Start();
 
             tmrFuel.Start();
             tmrAltitude.Start();
@@ -313,8 +320,51 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             }
         }
+            List<Point> lRight = new List<Point>();
 
+        public void JetTest()
+        {
+            pb = pbtest;
+            Point point = new Point(0, 0);
 
+            for (int i = 0; i < lPoints.Count(); i++)
+            {
+                JetMoveCrossThread(lPoints[i]);
+                if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                {
+                    for (int j = i; j < lPoints.Count(); j++)
+                    {
+                        lRight.Add(lPoints[j]);
+                    }
+
+                    
+                }
+
+                for (int k = 0; k < lRight.Count(); k++)
+                {
+                    while (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                    {
+                        Point newpoint = lRight[k];
+                        newpoint.X += 10;
+                        newpoint.Y += 10;
+                        lRight[k] = newpoint;
+                        JetMoveCrossThread(lRight[k]);
+                    }
+                    int iDiff = lPoints.Count() - lRight.Count();
+                    //lPoints[k + iDiff - 1] = lRight[k];
+                }
+            }
+
+            JetMoveCrossThread(lRight[0]);
+
+            //foreach (Point item in lRight)
+            //{
+
+            //    JetMoveCrossThread(item);
+
+            //    Thread.Sleep(100);
+            //}
+        }
 
         private void tmrFuel_Tick(object sender, EventArgs e)
         {
@@ -576,7 +626,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
-        public void jetMove()
+        public void JetMove()
         {
             foreach (Point item in lPoints)
             {
