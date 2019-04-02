@@ -39,29 +39,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
             {
-                pbArmory.Visible = true;
                 pbArmory.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
             {
-                pbBarrack.Visible = true;
-
                 pbBarrack.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
-                pbHeadquaters.Visible = true;
-
-                pbHeadquaters.ImageLocation = "Cloud.jpg";
+               pbHeadquaters.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
-                pbHospital.Visible = true;
                 pbHospital.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
             {
-                pbTankDepo.Visible = true;
                 pbTankDepo.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
@@ -269,7 +262,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
 
-            for (int i = endpoint.X; i < beginPoint.X; i += 10)
+            for (int i = endpoint.X; i < beginPoint.X; i += 1)
             {
                 Point point = new Point(i, (int)(i * m + c));
                 lPoints.Add(point);
@@ -288,10 +281,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             //{
             //    crossThreadSolution(item);
 
-            //    if ((item.X <= 485) || (item.Y <= 260))
-            //    {
-
-            //    }
+            if ((item.X <= 485) || (item.Y <= 260))
+            {
+                pbArmory.Visible = true;
+                pbBarrack.Visible = true;
+                pbHeadquaters.Visible = true;
+                pbHospital.Visible = true;
+                pbTankDepo.Visible = true;
+            }
 
             //    MessageBox.Show("Test");
             //    Thread.Sleep(100);
