@@ -60,7 +60,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
             {
 
-                hit = rnd.Next(20 );
+                hit = rnd.Next(20);
                 if (hit == 1)
                 {
                     pbBarrack.ImageLocation = "Cloud.jpg";
@@ -97,7 +97,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     Success += hit;
                     barracks = true;
                 }
- 
+
             }
             //if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
             //{
@@ -194,6 +194,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     fuel = Convert.ToInt32(item.FuelTankSize);
                 }
             }
+
             prbFuel.Maximum = fuel;
             prbFuel.Value = fuel;
 
@@ -314,36 +315,48 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         Point endpoint = new Point(69, 53);
         Point beginPoint = new Point(757, 400);
-        decimal m = 0;
-        decimal c = 0;
+
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-            decimal yDiff = beginPoint.Y - endpoint.Y;
-            decimal xDiff = beginPoint.X - endpoint.X;
+            lPoints = GetLine(beginPoint, endpoint);
 
-            m = (yDiff / xDiff);
+            bool bFoundColision = false;
 
-            c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
-
-            for (int i = endpoint.X; i < beginPoint.X; i += FlightSpeed)
+            for (int i = 0; i < lPoints.Count(); i++)
             {
-                Point point = new Point(i, (int)(i * m + c));
-                lPoints.Add(point);
+                JetMoveCrossThread(lPoints[i]);
+                if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                {
+                    bFoundColision = true;
+
+                    break;
+                }
             }
 
-            lPoints.Reverse();
+            while (bFoundColision)
+            {
+                bFoundColision = false;
 
+                for (int i = 0; i < lPoints.Count(); i++)
+                {
+                    JetMoveCrossThread(lPoints[i]);
+                    if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                    {
+                        bFoundColision = true;
 
-            Thread tTest = new Thread(JetTest);
+                        break;
+                    }
+                }
 
-            tTest.Start();
+                lPoints = JetTest();
+            }
 
+            
 
+            tMove = new Thread(JetMove);
 
-            //tMove = new Thread(JetMove);
-
-            //tMove.Start();
+            tMove.Start();
 
             tmrFuel.Start();
             tmrAltitude.Start();
@@ -361,76 +374,190 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             {
                 devider = Convert.ToInt32(WeightLoaded / 1000);
             }
-            else if (Plane ==  "F-16 Falcon")
+            else if (Plane == "F-16 Falcon")
             {
 
                 devider = Convert.ToInt32(WeightLoaded / 2000);
             }
-            else if (Plane ==  "de Haviland")
+            else if (Plane == "de Haviland")
             {
 
             }
         }
-            List<Point> lRight = new List<Point>();
 
-        public void JetTest()
+
+        public List<Point> JetTest()
         {
-            pb = pbtest;
-            Point point = new Point(0, 0);
+            List<Point> lNew = lPoints;
+            //pb = pbtest;
+            //bool bFoundColision = false;
 
-            for (int i = 0; i < lPoints.Count(); i++)
+            //for (int i = 0; i < lNew.Count(); i++)
+            //{
+            //    JetMoveCrossThread(lNew[i]);
+            //    if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //    {
+            //        bFoundColision = true;
+
+            //        break;
+            //    }
+            //}
+
+            //while (bFoundColision)
+            //{
+            //    bFoundColision = false;
+
+            //    for (int i = 0; i < lNew.Count(); i++)
+            //    {
+            //        JetMoveCrossThread(lNew[i]);
+            //        if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //        {
+            //            bFoundColision = true;
+
+            //            break;
+            //        }
+            //    }
+            //Point point = new Point(0, 0);
+            List<Point> lLastLine = new List<Point>();
+            List<Point> lRight = new List<Point>();
+            List<Point> lFirstLine = new List<Point>();
+
+            bool bFoundColision = false;
+
+
+            for (int i = 0; i < lNew.Count(); i++)
             {
-                JetMoveCrossThread(lPoints[i]);
+                JetMoveCrossThread(lNew[i]);
                 if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
                 {
-                    for (int j = i; j < lPoints.Count(); j++)
+                    MessageBox.Show(string.Format("Possible collission detected at {0}\nRerouting...", pb.Location.ToString()));
+                    bFoundColision = true;
+                    for (int j = i; j < lNew.Count(); j++)
                     {
-                        lRight.Add(lPoints[j]);
+                        lRight.Add(lNew[j]);
                     }
-
-                    
+                    break;
                 }
+            }
+            if (bFoundColision)
+            {
+                int iLastLinePos = 0;
+                int iFirstLinePos = 0;
 
                 for (int k = 0; k < lRight.Count(); k++)
                 {
+                    bool bChanged = false;
+                    JetMoveCrossThread(lRight[k]);
+                    Point newpoint = new Point();
+
                     while (pb.Bounds.IntersectsWith(pbCannon.Bounds))
                     {
-                        Point newpoint = lRight[k];
+                        bChanged = true;
+                        newpoint = lRight[k];
                         newpoint.X += 10;
-                        newpoint.Y += 10;
                         lRight[k] = newpoint;
+
                         JetMoveCrossThread(lRight[k]);
+
+                        iLastLinePos = k;
                     }
-                    int iDiff = lPoints.Count() - lRight.Count();
-                    //lPoints[k + iDiff - 1] = lRight[k];
+
+                    if (bChanged)
+                    {
+                        if (iFirstLinePos != 0)
+                        {
+                            iFirstLinePos = k;
+                        }
+                        newpoint = lRight[k];
+                        newpoint.X += 30;
+                        lRight[k] = newpoint;
+                    }
                 }
+
+
+                lLastLine = GetLine(lRight[iLastLinePos - 1], endpoint);
+                lFirstLine = GetLine(beginPoint, lRight[iFirstLinePos]);
+
+                lNew.Clear();
+
+                foreach (Point item in lFirstLine)
+                {
+                    lNew.Add(item);
+
+                    if (item == lRight[iFirstLinePos])
+                    {
+                        break;
+                    }
+                }
+
+                foreach (Point item in lRight)
+                {
+                    lNew.Add(item);
+
+                    if (item == lRight[iLastLinePos])
+                    {
+                        break;
+                    }
+                }
+
+
+                foreach (Point item in lLastLine)
+                {
+                    lNew.Add(item);
+                }
+
+                //foreach (Point item in lNew)
+                //{
+                //    //lPoints.Add(item);
+
+                //    JetMoveCrossThread(item);
+
+                //    Thread.Sleep(100);
+                //}
+                //}
             }
-
-            JetMoveCrossThread(lRight[0]);
-
-            //foreach (Point item in lRight)
-            //{
-
-            //    JetMoveCrossThread(item);
-
-            //    Thread.Sleep(100);
-            //}
+            return lNew;
         }
 
-        private void tmrFuel_Tick(object sender, EventArgs e)
+        public List<Point> GetLine(Point pBegin, Point pEnd)
         {
-            if (TimerFuel >= 0)
-            {
-                prbFuel.Value -= devider;
-                TimerFuel -= 1;
-            }
-            else
-            {
-                tmrFuel.Stop();
+            List<Point> lNew = new List<Point>();
 
+            decimal m = 0;
+            decimal c = 0;
+
+            decimal yDiff = pBegin.Y - pEnd.Y;
+            decimal xDiff = pBegin.X - pEnd.X;
+
+            m = (yDiff / xDiff);
+
+            c = (decimal)(pBegin.Y + (-1 * ((m) * (pBegin.X))));
+
+            for (int i = pEnd.X; i < pBegin.X; i += FlightSpeed)
+            {
+                Point point = new Point(i, (int)(i * m + c));
+                lNew.Add(point);
             }
 
+            lNew.Reverse();
+
+            return lNew;
         }
+
+        //private void tmrFuel_Tick(object sender, EventArgs e)
+        //{
+        //    if (TimerFuel >= 0)
+        //    {
+        //        prbFuel.Value -= devider;
+        //        TimerFuel -= 1;
+        //    }
+        //    else
+        //    {
+        //        tmrFuel.Stop();
+
+        //    }
+
+        //}
 
 
         private void tmrAltitude_Tick(object sender, EventArgs e)
@@ -679,19 +806,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         public void JetMove()
         {
+
             foreach (Point item in lPoints)
             {
-                JetMoveCrossThread(item);
+                //lPoints.Add(item);
 
-                if ((item.X <= 485) || (item.Y <= 260))
+                JetMoveCrossThread(item);
+                if ((item.X <= 458) && (item.Y <= 257))
                 {
                     BaseCampVisibility();
                 }
                 unhide(pb);
-                //MessageBox.Show("Test");
-
                 Thread.Sleep(100);
             }
+
+
+
         }
 
         private void btnStopSimulation_Click(object sender, EventArgs e)
