@@ -193,50 +193,50 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                if (pb.Location.Y > 69)
-                {
-                    pb.Left -= 2;
-                    unhide(pb);
-                }
-                else
-                {
-                    timerLeft.Stop();
-                }
-            }
-            catch (Exception)
-            {
-                tmrFuel.Stop();
-                timerLeft.Stop();
-                timerTop.Stop();
-                tmrAltitude.Stop();
-                TmrSpeed.Stop();
-                MessageBox.Show("Please choose a plane to fly with");
+            //try
+            //{
+            //    if (pb.Location.Y > 69)
+            //    {
+            //        pb.Left -= 2;
+            //        unhide(pb);
+            //    }
+            //    else
+            //    {
+            //        //timerLeft.Stop();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    tmrFuel.Stop();
+            //    //timerLeft.Stop();
+            //    //timerTop.Stop();
+            //    tmrAltitude.Stop();
+            //    TmrSpeed.Stop();
+            //    MessageBox.Show("Please choose a plane to fly with");
 
-            }
+            //}
 
         }
 
-        private void timerTop_Tick(object sender, EventArgs e)
+    private void timerTop_Tick(object sender, EventArgs e)
         {
-            try
-            {
-                if (pb.Location.Y > 53)
-                {
-                    pb.Top -= 1;
-                    unhide(pb);
-                }
-                else
-                {
-                    timerTop.Stop();
-                }
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    if (pb.Location.Y > 53)
+            //    {
+            //        pb.Top -= 1;
+            //        unhide(pb);
+            //    }
+            //    else
+            //    {
+            //        //timerTop.Stop();
+            //    }
+            //}
+            //catch (Exception)
+            //{
 
-                MessageBox.Show("Please choose a plane to fly with");
-            }
+            //    MessageBox.Show("Please choose a plane to fly with");
+            //}
 
         }
 
