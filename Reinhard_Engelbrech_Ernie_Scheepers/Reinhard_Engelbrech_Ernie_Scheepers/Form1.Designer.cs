@@ -69,7 +69,6 @@
             this.pbHospital = new System.Windows.Forms.PictureBox();
             this.pbHeadquaters = new System.Windows.Forms.PictureBox();
             this.pbBarrack = new System.Windows.Forms.PictureBox();
-            this.tmrMove = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbF16)).BeginInit();
@@ -499,10 +498,6 @@
             this.pbBarrack.TabStop = false;
             this.pbBarrack.Visible = false;
             // 
-            // tmrMove
-            // 
-            this.tmrMove.Tick += new System.EventHandler(this.tmrMove_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -613,7 +608,6 @@
         private System.Windows.Forms.PictureBox pbHospital;
         private System.Windows.Forms.PictureBox pbHeadquaters;
         private System.Windows.Forms.PictureBox pbBarrack;
-        private System.Windows.Forms.Timer tmrMove;
     }
 }
 

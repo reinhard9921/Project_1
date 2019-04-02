@@ -47,7 +47,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
-               pbHeadquaters.ImageLocation = "Cloud.jpg";
+                pbHeadquaters.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
@@ -57,52 +57,67 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             {
                 pbTankDepo.ImageLocation = "Cloud.jpg";
             }
-            if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            //if (pb.Bounds.IntersectsWith(pbCannon8.Bounds))
+            //{
+            //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    StopThreads();
+            //}
+            if ((pb.Bounds.IntersectsWith(pbCannon.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon2.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon3.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon4.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon5.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon6.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon7.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon8.Bounds)) ||
+                (pb.Bounds.IntersectsWith(pbCannon9.Bounds)))
             {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon2.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon3.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon4.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon5.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon6.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon7.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon8.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            if (pb.Bounds.IntersectsWith(pbCannon9.Bounds))
-            {
-                MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                StopThreads("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void StopThreads(string message, string heading, MessageBoxButtons messageBoxButtons, MessageBoxIcon messageBoxIcon)
+        {
+            tmrFuel.Stop();
+            tmrAltitude.Stop();
+            TmrSpeed.Stop();
+            MessageBox.Show( message,  heading,  messageBoxButtons,  messageBoxIcon);
+
+            tMove.Abort();
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -218,7 +233,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-    private void timerTop_Tick(object sender, EventArgs e)
+        private void timerTop_Tick(object sender, EventArgs e)
         {
             //try
             //{
@@ -248,6 +263,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         List<Point> lPoints = new List<Point>();
 
+        Thread tMove = null;
+
         Point endpoint = new Point(69, 53);
         Point beginPoint = new Point(757, 400);
         decimal m = 0;
@@ -262,7 +279,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             c = (decimal)(beginPoint.Y + (-1 * ((m) * (beginPoint.X))));
 
-            for (int i = endpoint.X; i < beginPoint.X; i += 1)
+            for (int i = endpoint.X; i < beginPoint.X; i += 10)
             {
                 Point point = new Point(i, (int)(i * m + c));
                 lPoints.Add(point);
@@ -270,7 +287,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             lPoints.Reverse();
 
-            Thread tMove = new Thread(jetMove);
+            tMove = new Thread(jetMove);
 
             tMove.Start();
 
@@ -522,13 +539,15 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         }
 
-        delegate void delCrossThread(Point point);
+        delegate void delCrossThreadMove(Point point);
+        delegate void delCrossThreadShow();
 
-        public void crossThreadSolution(Point point)
+
+        public void JetMoveCrossThread(Point point) //solution vir jet se movement
         {
             if (this.pb.InvokeRequired)
             {
-                delCrossThread d = new delCrossThread(crossThreadSolution);
+                delCrossThreadMove d = new delCrossThreadMove(JetMoveCrossThread);
                 this.Invoke(d, point);
             }
             else
@@ -537,21 +556,34 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
+        public void BaseCampVisibility() //solution vir jet se movement
+        {
+            if (this.pbArmory.InvokeRequired)
+            {
+                delCrossThreadShow d = new delCrossThreadShow(BaseCampVisibility);
+                this.Invoke(d);
+            }
+            else
+            {
+                this.pbArmory.Visible = true;
+                this.pbBarrack.Visible = true;
+                this.pbHeadquaters.Visible = true;
+                this.pbHospital.Visible = true;
+                this.pbTankDepo.Visible = true;
+            }
+        }
+
         public void jetMove()
         {
             foreach (Point item in lPoints)
             {
-                crossThreadSolution(item);
+                JetMoveCrossThread(item);
 
                 if ((item.X <= 485) || (item.Y <= 260))
                 {
-                    pbArmory.Visible = true;
-                    pbBarrack.Visible = true;
-                    pbHeadquaters.Visible = true;
-                    pbHospital.Visible = true;
-                    pbTankDepo.Visible = true;
+                    BaseCampVisibility();
                 }
-
+                unhide(pb);
                 //MessageBox.Show("Test");
 
                 Thread.Sleep(100);
@@ -563,6 +595,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             Application.Restart();
         }
 
-
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            StopThreads("Stopping all threads,\nApplication closing", "Application closed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            base.OnClosing(e);
+        }
     }
 }
