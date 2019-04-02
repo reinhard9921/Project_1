@@ -278,12 +278,13 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             lPoints.Reverse();
 
             //tmrMove.Start();
-
+            //tmrMove Code start
             foreach (Point item in lPoints)
             {
                 pb.Location = item;
                 MessageBox.Show("Test");
             }
+            //tmrMove Code end
 
             tmrFuel.Start();
             //timerLeft.Start();
@@ -355,7 +356,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             PictureBox picture = new PictureBox
             {
-                Name = "Cannon" + CannonNumber,
+                //Name = "Cannon" + CannonNumber,
                 Size = new Size(60, 60),
                 Location = new Point(100, 100),
                 Image = Image.FromFile("Cannon1.png"),
