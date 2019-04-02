@@ -535,21 +535,11 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
 
                 lLastLine = GetLine(lRight[iLastLinePos - 1], endpoint);
-                lFirstLine = GetLine(beginPoint, lRight[iFirstLinePos]);
+                lFirstLine = GetLine(beginPoint, lRight[iLastLinePos]);
 
                 lNew.Clear();
 
                 foreach (Point item in lFirstLine)
-                {
-                    lNew.Add(item);
-
-                    if (item == lRight[iFirstLinePos])
-                    {
-                        break;
-                    }
-                }
-
-                foreach (Point item in lRight)
                 {
                     lNew.Add(item);
 
@@ -558,6 +548,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                         break;
                     }
                 }
+
+                //foreach (Point item in lRight)
+                //{
+                //    lNew.Add(item);
+
+                //    if (item == lRight[iLastLinePos])
+                //    {
+                //        break;
+                //    }
+                //}
 
 
                 foreach (Point item in lLastLine)
