@@ -45,7 +45,7 @@
             this.pbCannon1 = new System.Windows.Forms.PictureBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.pbtest = new System.Windows.Forms.PictureBox();
-            this.pbCannon = new System.Windows.Forms.PictureBox();
+            this.pbCannon4 = new System.Windows.Forms.PictureBox();
             this.pb747 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.prbFuel = new System.Windows.Forms.ProgressBar();
@@ -56,14 +56,14 @@
             this.lblSpeed = new System.Windows.Forms.Label();
             this.tmrAltitude = new System.Windows.Forms.Timer(this.components);
             this.TmrSpeed = new System.Windows.Forms.Timer(this.components);
-            this.pbCannon2 = new System.Windows.Forms.PictureBox();
-            this.pbCannon3 = new System.Windows.Forms.PictureBox();
-            this.pbCannon4 = new System.Windows.Forms.PictureBox();
-            this.pbCannon5 = new System.Windows.Forms.PictureBox();
-            this.pbCannon6 = new System.Windows.Forms.PictureBox();
             this.pbCannon7 = new System.Windows.Forms.PictureBox();
+            this.pbCannon3 = new System.Windows.Forms.PictureBox();
             this.pbCannon8 = new System.Windows.Forms.PictureBox();
+            this.pbCannon2 = new System.Windows.Forms.PictureBox();
+            this.pbCannon6 = new System.Windows.Forms.PictureBox();
             this.pbCannon9 = new System.Windows.Forms.PictureBox();
+            this.pbCannon5 = new System.Windows.Forms.PictureBox();
+            this.pbCannon = new System.Windows.Forms.PictureBox();
             this.btnStopSimulation = new System.Windows.Forms.Button();
             this.pbArmory = new System.Windows.Forms.PictureBox();
             this.pbHospital = new System.Windows.Forms.PictureBox();
@@ -81,16 +81,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbtest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb747)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb747)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHospital)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).BeginInit();
@@ -251,17 +251,18 @@
             this.pbtest.Size = new System.Drawing.Size(64, 63);
             this.pbtest.TabIndex = 15;
             this.pbtest.TabStop = false;
+            this.pbtest.Visible = false;
             // 
-            // pbCannon
+            // pbCannon4
             // 
-            this.pbCannon.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon.Image")));
-            this.pbCannon.Location = new System.Drawing.Point(841, 280);
-            this.pbCannon.Name = "pbCannon";
-            this.pbCannon.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon.TabIndex = 16;
-            this.pbCannon.TabStop = false;
-            this.pbCannon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon_MouseClick);
-            this.pbCannon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon_MouseMove);
+            this.pbCannon4.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon4.Image")));
+            this.pbCannon4.Location = new System.Drawing.Point(840, 359);
+            this.pbCannon4.Name = "pbCannon4";
+            this.pbCannon4.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon4.TabIndex = 16;
+            this.pbCannon4.TabStop = false;
+            this.pbCannon4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon_MouseClick);
+            this.pbCannon4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon_MouseMove);
             // 
             // pb747
             // 
@@ -347,21 +348,21 @@
             this.TmrSpeed.Interval = 10;
             this.TmrSpeed.Tick += new System.EventHandler(this.TmrSpeed_Tick);
             // 
-            // pbCannon2
+            // pbCannon7
             // 
-            this.pbCannon2.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon2.Image")));
-            this.pbCannon2.Location = new System.Drawing.Point(896, 280);
-            this.pbCannon2.Name = "pbCannon2";
-            this.pbCannon2.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon2.TabIndex = 23;
-            this.pbCannon2.TabStop = false;
-            this.pbCannon2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon2_MouseClick);
-            this.pbCannon2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon2_MouseMove);
+            this.pbCannon7.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon7.Image")));
+            this.pbCannon7.Location = new System.Drawing.Point(841, 432);
+            this.pbCannon7.Name = "pbCannon7";
+            this.pbCannon7.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon7.TabIndex = 23;
+            this.pbCannon7.TabStop = false;
+            this.pbCannon7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon2_MouseClick);
+            this.pbCannon7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon2_MouseMove);
             // 
             // pbCannon3
             // 
             this.pbCannon3.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon3.Image")));
-            this.pbCannon3.Location = new System.Drawing.Point(950, 280);
+            this.pbCannon3.Location = new System.Drawing.Point(949, 286);
             this.pbCannon3.Name = "pbCannon3";
             this.pbCannon3.Size = new System.Drawing.Size(49, 50);
             this.pbCannon3.TabIndex = 24;
@@ -369,32 +370,32 @@
             this.pbCannon3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon3_MouseClick);
             this.pbCannon3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon3_MouseMove);
             // 
-            // pbCannon4
+            // pbCannon8
             // 
-            this.pbCannon4.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon4.Image")));
-            this.pbCannon4.Location = new System.Drawing.Point(840, 336);
-            this.pbCannon4.Name = "pbCannon4";
-            this.pbCannon4.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon4.TabIndex = 25;
-            this.pbCannon4.TabStop = false;
-            this.pbCannon4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon4_MouseClick);
-            this.pbCannon4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon4_MouseMove);
+            this.pbCannon8.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon8.Image")));
+            this.pbCannon8.Location = new System.Drawing.Point(894, 432);
+            this.pbCannon8.Name = "pbCannon8";
+            this.pbCannon8.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon8.TabIndex = 25;
+            this.pbCannon8.TabStop = false;
+            this.pbCannon8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon4_MouseClick);
+            this.pbCannon8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon4_MouseMove);
             // 
-            // pbCannon5
+            // pbCannon2
             // 
-            this.pbCannon5.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon5.Image")));
-            this.pbCannon5.Location = new System.Drawing.Point(896, 336);
-            this.pbCannon5.Name = "pbCannon5";
-            this.pbCannon5.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon5.TabIndex = 26;
-            this.pbCannon5.TabStop = false;
-            this.pbCannon5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon5_MouseClick);
-            this.pbCannon5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon5_MouseMove);
+            this.pbCannon2.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon2.Image")));
+            this.pbCannon2.Location = new System.Drawing.Point(894, 286);
+            this.pbCannon2.Name = "pbCannon2";
+            this.pbCannon2.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon2.TabIndex = 26;
+            this.pbCannon2.TabStop = false;
+            this.pbCannon2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon5_MouseClick);
+            this.pbCannon2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon5_MouseMove);
             // 
             // pbCannon6
             // 
             this.pbCannon6.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon6.Image")));
-            this.pbCannon6.Location = new System.Drawing.Point(950, 336);
+            this.pbCannon6.Location = new System.Drawing.Point(949, 359);
             this.pbCannon6.Name = "pbCannon6";
             this.pbCannon6.Size = new System.Drawing.Size(49, 50);
             this.pbCannon6.TabIndex = 27;
@@ -402,38 +403,38 @@
             this.pbCannon6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon6_MouseClick);
             this.pbCannon6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon6_MouseMove);
             // 
-            // pbCannon7
-            // 
-            this.pbCannon7.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon7.Image")));
-            this.pbCannon7.Location = new System.Drawing.Point(841, 392);
-            this.pbCannon7.Name = "pbCannon7";
-            this.pbCannon7.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon7.TabIndex = 28;
-            this.pbCannon7.TabStop = false;
-            this.pbCannon7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon7_MouseClick);
-            this.pbCannon7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon7_MouseMove);
-            // 
-            // pbCannon8
-            // 
-            this.pbCannon8.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon8.Image")));
-            this.pbCannon8.Location = new System.Drawing.Point(896, 392);
-            this.pbCannon8.Name = "pbCannon8";
-            this.pbCannon8.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon8.TabIndex = 29;
-            this.pbCannon8.TabStop = false;
-            this.pbCannon8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon8_MouseClick);
-            this.pbCannon8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon8_MouseMove);
-            // 
             // pbCannon9
             // 
             this.pbCannon9.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon9.Image")));
-            this.pbCannon9.Location = new System.Drawing.Point(950, 392);
+            this.pbCannon9.Location = new System.Drawing.Point(949, 432);
             this.pbCannon9.Name = "pbCannon9";
             this.pbCannon9.Size = new System.Drawing.Size(49, 50);
-            this.pbCannon9.TabIndex = 30;
+            this.pbCannon9.TabIndex = 28;
             this.pbCannon9.TabStop = false;
-            this.pbCannon9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon9_MouseClick);
-            this.pbCannon9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon9_MouseMove);
+            this.pbCannon9.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon7_MouseClick);
+            this.pbCannon9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon7_MouseMove);
+            // 
+            // pbCannon5
+            // 
+            this.pbCannon5.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon5.Image")));
+            this.pbCannon5.Location = new System.Drawing.Point(894, 359);
+            this.pbCannon5.Name = "pbCannon5";
+            this.pbCannon5.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon5.TabIndex = 29;
+            this.pbCannon5.TabStop = false;
+            this.pbCannon5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon8_MouseClick);
+            this.pbCannon5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon8_MouseMove);
+            // 
+            // pbCannon
+            // 
+            this.pbCannon.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon.Image")));
+            this.pbCannon.Location = new System.Drawing.Point(841, 286);
+            this.pbCannon.Name = "pbCannon";
+            this.pbCannon.Size = new System.Drawing.Size(49, 50);
+            this.pbCannon.TabIndex = 30;
+            this.pbCannon.TabStop = false;
+            this.pbCannon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbCannon9_MouseClick);
+            this.pbCannon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCannon9_MouseMove);
             // 
             // btnStopSimulation
             // 
@@ -497,10 +498,10 @@
             // lstReports
             // 
             this.lstReports.FormattingEnabled = true;
-            this.lstReports.Location = new System.Drawing.Point(998, 14);
+            this.lstReports.Location = new System.Drawing.Point(1004, 14);
             this.lstReports.Margin = new System.Windows.Forms.Padding(2);
             this.lstReports.Name = "lstReports";
-            this.lstReports.Size = new System.Drawing.Size(426, 524);
+            this.lstReports.Size = new System.Drawing.Size(420, 537);
             this.lstReports.TabIndex = 32;
             // 
             // Form1
@@ -510,14 +511,14 @@
             this.ClientSize = new System.Drawing.Size(1443, 783);
             this.Controls.Add(this.lstReports);
             this.Controls.Add(this.btnStopSimulation);
-            this.Controls.Add(this.pbCannon9);
-            this.Controls.Add(this.pbCannon8);
-            this.Controls.Add(this.pbCannon7);
-            this.Controls.Add(this.pbCannon6);
+            this.Controls.Add(this.pbCannon);
             this.Controls.Add(this.pbCannon5);
-            this.Controls.Add(this.pbCannon4);
-            this.Controls.Add(this.pbCannon3);
+            this.Controls.Add(this.pbCannon9);
+            this.Controls.Add(this.pbCannon6);
             this.Controls.Add(this.pbCannon2);
+            this.Controls.Add(this.pbCannon8);
+            this.Controls.Add(this.pbCannon3);
+            this.Controls.Add(this.pbCannon7);
             this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblAltitude);
@@ -531,7 +532,7 @@
             this.Controls.Add(this.pbHeadquaters);
             this.Controls.Add(this.pbHospital);
             this.Controls.Add(this.pbArmory);
-            this.Controls.Add(this.pbCannon);
+            this.Controls.Add(this.pbCannon4);
             this.Controls.Add(this.pbtest);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnBomber);
@@ -553,16 +554,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConnon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbtest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb747)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCannon6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb747)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCannon9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCannon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHospital)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHeadquaters)).EndInit();
@@ -590,7 +591,7 @@
         private System.Windows.Forms.PictureBox pbCannon1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox pbtest;
-        private System.Windows.Forms.PictureBox pbCannon;
+        private System.Windows.Forms.PictureBox pbCannon4;
         private System.Windows.Forms.PictureBox pb747;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar prbFuel;
@@ -601,14 +602,14 @@
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Timer tmrAltitude;
         private System.Windows.Forms.Timer TmrSpeed;
-        private System.Windows.Forms.PictureBox pbCannon2;
-        private System.Windows.Forms.PictureBox pbCannon3;
-        private System.Windows.Forms.PictureBox pbCannon4;
-        private System.Windows.Forms.PictureBox pbCannon5;
-        private System.Windows.Forms.PictureBox pbCannon6;
         private System.Windows.Forms.PictureBox pbCannon7;
+        private System.Windows.Forms.PictureBox pbCannon3;
         private System.Windows.Forms.PictureBox pbCannon8;
+        private System.Windows.Forms.PictureBox pbCannon2;
+        private System.Windows.Forms.PictureBox pbCannon6;
         private System.Windows.Forms.PictureBox pbCannon9;
+        private System.Windows.Forms.PictureBox pbCannon5;
+        private System.Windows.Forms.PictureBox pbCannon;
         private System.Windows.Forms.Button btnStopSimulation;
         private System.Windows.Forms.PictureBox pbArmory;
         private System.Windows.Forms.PictureBox pbHospital;

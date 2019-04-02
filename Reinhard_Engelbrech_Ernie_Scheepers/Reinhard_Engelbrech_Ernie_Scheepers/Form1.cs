@@ -314,41 +314,41 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         public PictureBox CheckCollission(PictureBox pb1)
         {
-            if (pb1.Bounds.IntersectsWith(pbCannon.Bounds))
-            {
-                return pbCannon;
-            }
-            else if (pb1.Bounds.IntersectsWith(pbCannon2.Bounds)) 
-            {
-                return pbCannon2;
-            }
-            else if (pb1.Bounds.IntersectsWith(pbCannon3.Bounds))
-            {
-                return pbCannon3;
-            }
-            else if (pb1.Bounds.IntersectsWith(pbCannon4.Bounds))
+            if (pb1.Bounds.IntersectsWith(pbCannon4.Bounds))
             {
                 return pbCannon4;
-            }
-            else if (pb1.Bounds.IntersectsWith(pbCannon5.Bounds))
-            {
-                return pbCannon5;
-            }
-            else if (pb1.Bounds.IntersectsWith(pbCannon6.Bounds))
-            {
-                return pbCannon6;
             }
             else if (pb1.Bounds.IntersectsWith(pbCannon7.Bounds))
             {
                 return pbCannon7;
             }
+            else if (pb1.Bounds.IntersectsWith(pbCannon3.Bounds))
+            {
+                return pbCannon3;
+            }
             else if (pb1.Bounds.IntersectsWith(pbCannon8.Bounds))
             {
                 return pbCannon8;
             }
+            else if (pb1.Bounds.IntersectsWith(pbCannon2.Bounds))
+            {
+                return pbCannon2;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon6.Bounds))
+            {
+                return pbCannon6;
+            }
             else if (pb1.Bounds.IntersectsWith(pbCannon9.Bounds))
             {
                 return pbCannon9;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon5.Bounds))
+            {
+                return pbCannon5;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon.Bounds))
+            {
+                return pbCannon;
             }
 
             return null;
@@ -356,26 +356,18 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
-            lPoints = GetLine(beginPoint, endpoint);
-
-            bool bFoundColision = false;
-
-            MessageBox.Show("Planning safests path...", "Planning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            for (int i = 0; i < lPoints.Count(); i++)
+            try
             {
-                JetMoveCrossThread(lPoints[i]);
-                if (CheckCollission(pb) != null)
+                if (pb == null)
                 {
-                    bFoundColision = true;
-
-                    break;
+                    throw new CustomeException("Please select a plane first!!!");
                 }
-            }
 
-            while (bFoundColision)
-            {
-                bFoundColision = false;
+                lPoints = GetLine(beginPoint, endpoint);
+
+                bool bFoundColision = false;
+
+                MessageBox.Show("Planning safests path...", "Planning", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 for (int i = 0; i < lPoints.Count(); i++)
                 {
@@ -388,20 +380,44 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     }
                 }
 
-                lPoints = JetTest();
+                while (bFoundColision)
+                {
+                    bFoundColision = false;
+
+                    for (int i = 0; i < lPoints.Count(); i++)
+                    {
+                        JetMoveCrossThread(lPoints[i]);
+                        if (CheckCollission(pb) != null)
+                        {
+                            bFoundColision = true;
+
+                            break;
+                        }
+                    }
+
+                    lPoints = JetTest();
+                }
+
+
+
+                tMove = new Thread(JetMove);
+
+                MessageBox.Show("Safest path found.\nPreparing for liftoff...", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                tMove.Start();
+
+                tmrFuel.Start();
+                tmrAltitude.Start();
+                TmrSpeed.Start();
+            }
+            catch (CustomeException )
+            {
+                
+                
             }
 
+
             
-
-            tMove = new Thread(JetMove);
-
-            MessageBox.Show("Safest path found.\nPreparing for liftoff...", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            tMove.Start();
-
-            tmrFuel.Start();
-            tmrAltitude.Start();
-            TmrSpeed.Start();
 
 
         }
@@ -512,7 +528,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                             iFirstLinePos = k;
                         }
                         newpoint = lRight[k];
-                        newpoint.X += 30;
+                        newpoint.X += 10;
                         lRight[k] = newpoint;
                     }
                 }
@@ -640,7 +656,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon.Location = new Point(pbCannon.Location.X + e.X - dragPoint.X, pbCannon.Location.Y + e.Y - dragPoint.Y);
+                pbCannon4.Location = new Point(pbCannon4.Location.X + e.X - dragPoint.X, pbCannon4.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon_MouseClick(object sender, MouseEventArgs e)
@@ -659,7 +675,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon2_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon2.Location = new Point(pbCannon2.Location.X + e.X - dragPoint.X, pbCannon2.Location.Y + e.Y - dragPoint.Y);
+                pbCannon7.Location = new Point(pbCannon7.Location.X + e.X - dragPoint.X, pbCannon7.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon2_MouseClick(object sender, MouseEventArgs e)
@@ -697,7 +713,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon4_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon4.Location = new Point(pbCannon4.Location.X + e.X - dragPoint.X, pbCannon4.Location.Y + e.Y - dragPoint.Y);
+                pbCannon8.Location = new Point(pbCannon8.Location.X + e.X - dragPoint.X, pbCannon8.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon4_MouseClick(object sender, MouseEventArgs e)
@@ -716,7 +732,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon5_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon5.Location = new Point(pbCannon5.Location.X + e.X - dragPoint.X, pbCannon5.Location.Y + e.Y - dragPoint.Y);
+                pbCannon2.Location = new Point(pbCannon2.Location.X + e.X - dragPoint.X, pbCannon2.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon5_MouseClick(object sender, MouseEventArgs e)
@@ -754,7 +770,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon7_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon7.Location = new Point(pbCannon7.Location.X + e.X - dragPoint.X, pbCannon7.Location.Y + e.Y - dragPoint.Y);
+                pbCannon9.Location = new Point(pbCannon9.Location.X + e.X - dragPoint.X, pbCannon9.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon7_MouseClick(object sender, MouseEventArgs e)
@@ -773,7 +789,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon8_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon8.Location = new Point(pbCannon8.Location.X + e.X - dragPoint.X, pbCannon8.Location.Y + e.Y - dragPoint.Y);
+                pbCannon5.Location = new Point(pbCannon5.Location.X + e.X - dragPoint.X, pbCannon5.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon8_MouseClick(object sender, MouseEventArgs e)
@@ -792,7 +808,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void pbCannon9_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
-                pbCannon9.Location = new Point(pbCannon9.Location.X + e.X - dragPoint.X, pbCannon9.Location.Y + e.Y - dragPoint.Y);
+                pbCannon.Location = new Point(pbCannon.Location.X + e.X - dragPoint.X, pbCannon.Location.Y + e.Y - dragPoint.Y);
         }
 
         private void pbCannon9_MouseClick(object sender, MouseEventArgs e)
