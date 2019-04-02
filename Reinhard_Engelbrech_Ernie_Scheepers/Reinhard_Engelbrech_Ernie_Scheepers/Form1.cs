@@ -277,12 +277,24 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             lPoints.Reverse();
 
+            Thread tMove = new Thread(jetMove);
+
+            //tMove.Start();
+
+
             //tmrMove.Start();
             //tmrMove Code start
             foreach (Point item in lPoints)
             {
-                pb.Location = item;
+                crossThreadSolution(item);
+
+                if ((item.X <= 485) || (item.Y <= 260))
+                {
+
+                }
+
                 MessageBox.Show("Test");
+                Thread.Sleep(100);
             }
             //tmrMove Code end
 
@@ -533,16 +545,45 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void tmrMove_Tick(object sender, EventArgs e)
         {
-            //foreach (Point item in lPoints)
-            //{
-            //    pb.Location = item;
-            //    MessageBox.Show("Test");
 
-            //}
         }
+
+        delegate void delCrossThread(Point point);
+
+        public void crossThreadSolution(Point point)
+        {
+            if (this.pb.InvokeRequired != true)
+            {
+                delCrossThread d = new delCrossThread(crossThreadSolution);
+                this.Invoke(d, point);
+            }
+            else
+            {
+                this.pb.Location = point;
+            }
+        }
+
+        public void jetMove()
+        {
+            foreach (Point item in lPoints)
+            {
+                crossThreadSolution(item);
+
+                if ((item.X <= 485) || (item.Y <= 260))
+                {
+
+                }
+
+                //MessageBox.Show("Test");
+                Thread.Sleep(100);
+            }
+        }
+
         private void btnStopSimulation_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
+
+
     }
 }
