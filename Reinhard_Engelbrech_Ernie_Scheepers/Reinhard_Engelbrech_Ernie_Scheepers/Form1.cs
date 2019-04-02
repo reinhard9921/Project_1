@@ -33,30 +33,36 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         double WeightLoaded;
         double WeightUnloaded;
         int fuel;
-        int CannonNumber;
+
 
         public void unhide(PictureBox pb)
         {
             if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
             {
                 pbArmory.Visible = true;
+                pbArmory.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
             {
                 pbBarrack.Visible = true;
+
+                pbBarrack.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
                 pbHeadquaters.Visible = true;
 
+                pbHeadquaters.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
                 pbHospital.Visible = true;
+                pbHospital.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
             {
                 pbTankDepo.Visible = true;
+                pbTankDepo.ImageLocation = "Cloud.jpg";
             }
             if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
             {
@@ -546,6 +552,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             //    MessageBox.Show("Test");
 
             //}
+        }
+        private void btnStopSimulation_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
