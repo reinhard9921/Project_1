@@ -114,7 +114,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             TmrSpeed.Stop();
             MessageBox.Show( message,  heading,  messageBoxButtons,  messageBoxIcon);
 
-            tMove.Abort();
+            if (tMove != null)
+            {
+                tMove.Abort();
+            }
         }
 
 
