@@ -275,8 +275,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             tMove.Start();
 
             tmrFuel.Start();
-            //timerLeft.Start();
-            //timerTop.Start();
             tmrAltitude.Start();
             TmrSpeed.Start();
 
