@@ -139,11 +139,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    StopThreads();
             //}
-            if ((pb.Bounds.IntersectsWith(pbCannon.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon2.Bounds)) ||
-                (pb.Bounds.IntersectsWith(pbCannon3.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon4.Bounds)) ||
-                (pb.Bounds.IntersectsWith(pbCannon5.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon6.Bounds)) ||
-                (pb.Bounds.IntersectsWith(pbCannon7.Bounds)) || (pb.Bounds.IntersectsWith(pbCannon8.Bounds)) ||
-                (pb.Bounds.IntersectsWith(pbCannon9.Bounds)))
+            if (CheckCollission(pb) != null)
             {
                 StopThreads("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -316,6 +312,47 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         Point endpoint = new Point(69, 53);
         Point beginPoint = new Point(757, 400);
 
+        public PictureBox CheckCollission(PictureBox pb1)
+        {
+            if (pb1.Bounds.IntersectsWith(pbCannon.Bounds))
+            {
+                return pbCannon;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon2.Bounds)) 
+            {
+                return pbCannon2;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon3.Bounds))
+            {
+                return pbCannon3;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon4.Bounds))
+            {
+                return pbCannon4;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon5.Bounds))
+            {
+                return pbCannon5;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon6.Bounds))
+            {
+                return pbCannon6;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon7.Bounds))
+            {
+                return pbCannon7;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon8.Bounds))
+            {
+                return pbCannon8;
+            }
+            else if (pb1.Bounds.IntersectsWith(pbCannon9.Bounds))
+            {
+                return pbCannon9;
+            }
+
+            return null;
+        }
 
         private void btnStart_Click_1(object sender, EventArgs e)
         {
@@ -326,7 +363,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             for (int i = 0; i < lPoints.Count(); i++)
             {
                 JetMoveCrossThread(lPoints[i]);
-                if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                if (CheckCollission(pb) != null)
                 {
                     bFoundColision = true;
 
@@ -341,7 +378,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 for (int i = 0; i < lPoints.Count(); i++)
                 {
                     JetMoveCrossThread(lPoints[i]);
-                    if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                    if (CheckCollission(pb) != null)
                     {
                         bFoundColision = true;
 
@@ -424,14 +461,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             bool bFoundColision = false;
 
+            PictureBox pbCollide = null;
 
             for (int i = 0; i < lNew.Count(); i++)
             {
                 JetMoveCrossThread(lNew[i]);
-                if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                if (CheckCollission(pb) != null)
                 {
                     MessageBox.Show(string.Format("Possible collission detected at {0}\nRerouting...", pb.Location.ToString()));
                     bFoundColision = true;
+                    pbCollide = CheckCollission(pb);
                     for (int j = i; j < lNew.Count(); j++)
                     {
                         lRight.Add(lNew[j]);
@@ -450,7 +489,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     JetMoveCrossThread(lRight[k]);
                     Point newpoint = new Point();
 
-                    while (pb.Bounds.IntersectsWith(pbCannon.Bounds))
+                    while (pb.Bounds.IntersectsWith(pbCollide.Bounds))
                     {
                         bChanged = true;
                         newpoint = lRight[k];
