@@ -8,14 +8,13 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 {
     class InventoryObjects
     {
-
-        private int weight;
         private string name;
+        private int weight;
 
         public int Weight { get => weight; set => weight = value; }
         public string Name { get => name; set => name = value; }
 
-        public InventoryObjects(int weight, string name)
+        public InventoryObjects(string name, int weight)
         {
             this.weight = weight;
             this.name = name;

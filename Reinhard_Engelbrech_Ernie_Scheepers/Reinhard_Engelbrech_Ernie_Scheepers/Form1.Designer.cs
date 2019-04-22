@@ -70,6 +70,7 @@
             this.pbHeadquaters = new System.Windows.Forms.PictureBox();
             this.pbBarrack = new System.Windows.Forms.PictureBox();
             this.lstReports = new System.Windows.Forms.ListBox();
+            this.lstJetDetails = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbF16)).BeginInit();
@@ -428,7 +429,7 @@
             // pbCannon
             // 
             this.pbCannon.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon.Image")));
-            this.pbCannon.Location = new System.Drawing.Point(841, 286);
+            this.pbCannon.Location = new System.Drawing.Point(840, 286);
             this.pbCannon.Name = "pbCannon";
             this.pbCannon.Size = new System.Drawing.Size(49, 50);
             this.pbCannon.TabIndex = 30;
@@ -497,18 +498,32 @@
             // 
             // lstReports
             // 
+            this.lstReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstReports.FormattingEnabled = true;
-            this.lstReports.Location = new System.Drawing.Point(1004, 14);
+            this.lstReports.ItemHeight = 20;
+            this.lstReports.Location = new System.Drawing.Point(1012, 279);
             this.lstReports.Margin = new System.Windows.Forms.Padding(2);
             this.lstReports.Name = "lstReports";
-            this.lstReports.Size = new System.Drawing.Size(420, 537);
+            this.lstReports.Size = new System.Drawing.Size(420, 264);
             this.lstReports.TabIndex = 32;
+            // 
+            // lstJetDetails
+            // 
+            this.lstJetDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstJetDetails.FormattingEnabled = true;
+            this.lstJetDetails.ItemHeight = 20;
+            this.lstJetDetails.Location = new System.Drawing.Point(1012, 11);
+            this.lstJetDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.lstJetDetails.Name = "lstJetDetails";
+            this.lstJetDetails.Size = new System.Drawing.Size(420, 264);
+            this.lstJetDetails.TabIndex = 33;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 783);
+            this.Controls.Add(this.lstJetDetails);
             this.Controls.Add(this.lstReports);
             this.Controls.Add(this.btnStopSimulation);
             this.Controls.Add(this.pbCannon);
@@ -616,6 +631,7 @@
         private System.Windows.Forms.PictureBox pbHeadquaters;
         private System.Windows.Forms.PictureBox pbBarrack;
         private System.Windows.Forms.ListBox lstReports;
+        private System.Windows.Forms.ListBox lstJetDetails;
     }
 }
 
