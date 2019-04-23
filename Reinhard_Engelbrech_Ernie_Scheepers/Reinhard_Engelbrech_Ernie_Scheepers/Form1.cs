@@ -40,6 +40,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         bool Hospital;
         bool barracks;
         bool armory;
+        bool bHit;
         Random rnd = new Random();
         //int FlightSpeed;
 
@@ -48,11 +49,12 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbArmory.Bounds))
             {
 
-                hit = rnd.Next(8);
-                if (hit == 1)
+                hit = rnd.Next(20);
+                if ((hit == 1) && (armory == false))
                 {
                     pbArmory.ImageLocation = "Cloud.jpg";
                     Success += 25;
+                    bHit = true;
                     armory = true;
                 }
 
@@ -60,31 +62,37 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbBarrack.Bounds))
             {
 
-                hit = rnd.Next(20);
-                if ((hit == 1) && (barracks = false))
+                hit = rnd.Next(15);
+                if ((hit == 1) && (barracks == false))
                 {
                     pbBarrack.ImageLocation = "Cloud.jpg";
+                    pbF16.ImageLocation = "R3.png";
+                    pb747.ImageLocation = "R2.png";
+                    pbStealthBomber.ImageLocation = "R1.png";
                     Success += 25;
+                    bHit = true;
                     barracks = true;
                 }
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
                 hit = rnd.Next(2);
-                if ((hit == 1) && (HQ = false))
+                if ((hit == 1) && (HQ == false))
                 {
                     pbHeadquaters.ImageLocation = "Cloud.jpg";
-                    Success += hit;
+                    Success += 25;
+                    bHit = true;
                     HQ = true;
                 }
             }
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
-                hit = rnd.Next(25);
-                if ((hit == 1) && (Hospital = false))
+                hit = rnd.Next(30);
+                if ((hit == 1) && (Hospital == false))
                 {
                     pbHospital.ImageLocation = "Cloud.jpg";
-                    Success += hit;
+                    Success += 25;
+                    bHit = true;
                     Hospital = true;
                 }
             }
