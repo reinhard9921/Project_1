@@ -923,6 +923,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 lstReports.Text = (line);
             }
         }
+
+        delegate void delCrossThreadRotate(string imagePath);
+
+        public void JetRotateCrossThread(string imagePath) //solution vir jet se movement
+        {
+            if (this.pb.InvokeRequired)
+            {
+                delCrossThreadRotate d = new delCrossThreadRotate(JetRotateCrossThread);
+                this.Invoke(d, imagePath);
+            }
+            else
+            {
+                this.pb.ImageLocation = imagePath;
+            }
+        }
+
         public void JetMove()
         {
 
@@ -945,6 +961,20 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             List<Point> lBack = lPoints;
             lBack.Reverse();
+
+            if (pb == pbF16)
+            {
+                pb.ImageLocation = "R3.png";
+            }
+            else if (pb == pb747)
+            {
+                pb.ImageLocation = "R2.png";
+            }
+            else
+            {
+                pb.ImageLocation = "R1.png";
+            }
+
 
             foreach (Point item in lBack)
             {
