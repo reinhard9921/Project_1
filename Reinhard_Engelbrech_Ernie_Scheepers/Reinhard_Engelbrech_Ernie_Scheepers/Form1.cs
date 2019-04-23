@@ -576,9 +576,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     }
                 }
 
-                //MessageBox.Show(Convert.ToString(lRight[iLastLinePos - 1]));
-                //MessageBox.Show(Convert.ToString(lRight[iLastLinePos]));
-
                 lLastLine = GetLine(lRight[iLastLinePos - 1], endpoint);
                 lFirstLine = GetLine(beginPoint, lRight[iLastLinePos]);
 
@@ -596,31 +593,11 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                 }
 
-                //foreach (Point item in lRight)
-                //{
-                //    lNew.Add(item);
-
-                //    if (item == lRight[iLastLinePos])
-                //    {
-                //        break;
-                //    }
-                //}
-
 
                 foreach (Point item in lLastLine)
                 {
                     lNew.Add(item);
                 }
-
-                //foreach (Point item in lNew)
-                //{
-                //    //lPoints.Add(item);
-
-                //    JetMoveCrossThread(item);
-
-                //    Thread.Sleep(100);
-                //}
-                //}
             }
             return lNew;
         }
@@ -962,12 +939,25 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 }
             }
 
+            List<Point> lBack = lPoints;
+            lBack.Reverse();
+
+            foreach (Point item in lBack)
+            {
+                JetMoveCrossThread(item);
+                Thread.Sleep((int)CurrentSpeed);
+
+
+            }
+
             DisplayReport();
 
         }
 
         private void btnStopSimulation_Click(object sender, EventArgs e)
         {
+            StopThreads("Stopping all threads,\nApplication closing", "Application closed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             Application.Restart();
         }
 

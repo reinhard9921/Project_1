@@ -444,7 +444,7 @@
             this.btnStopSimulation.Name = "btnStopSimulation";
             this.btnStopSimulation.Size = new System.Drawing.Size(154, 50);
             this.btnStopSimulation.TabIndex = 31;
-            this.btnStopSimulation.Text = "Stop Simulation";
+            this.btnStopSimulation.Text = "Reset Simulation";
             this.btnStopSimulation.UseVisualStyleBackColor = true;
             this.btnStopSimulation.Click += new System.EventHandler(this.btnStopSimulation_Click);
             // 
