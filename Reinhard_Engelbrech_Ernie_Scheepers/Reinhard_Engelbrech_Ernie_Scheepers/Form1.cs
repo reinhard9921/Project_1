@@ -163,6 +163,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             lstReports.Items.Clear();
             pb747.Hide();
+            pb747.BackColor = Color.Transparent;
             pbF16.Hide();
             pbStealthBomber.Hide();
         }
@@ -173,8 +174,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Show();
             pbStealthBomber.Hide();
             pb = pbF16;
-            int x = 757;
-            int y = 400;
+            int x = 920;
+            int y = 690;
             pb.Location = new Point(x, y);
             Plane = "F-16 Falcon";
             foreach (Jet item in Jets)
@@ -202,8 +203,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Hide();
             pb = pb747;
-            int x = 757;
-            int y = 400;
+            int x = 920;
+            int y = 690;
             pb.Location = new Point(x, y);
             Plane = "Spitfire";
             foreach (Jet item in Jets)
@@ -229,8 +230,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Show();
             pb = pbStealthBomber;
-            int x = 757;
-            int y = 400;
+            int x = 920;
+            int y = 690;
             pb.Location = new Point(x, y);
             Plane = "de Haviland";
             foreach (Jet item in Jets)
