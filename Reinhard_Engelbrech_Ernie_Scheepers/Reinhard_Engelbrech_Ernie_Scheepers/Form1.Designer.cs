@@ -67,10 +67,10 @@
             this.pbHospital = new System.Windows.Forms.PictureBox();
             this.pbHeadquaters = new System.Windows.Forms.PictureBox();
             this.pbBarrack = new System.Windows.Forms.PictureBox();
-            this.lstReports = new System.Windows.Forms.ListBox();
             this.lblSpeed = new System.Windows.Forms.Label();
             this.lblAltitude = new System.Windows.Forms.Label();
             this.lstJetDetails = new System.Windows.Forms.ListBox();
+            this.lstReports = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStealthBomber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbF16)).BeginInit();
@@ -110,7 +110,7 @@
             // 
             // btnF16
             // 
-            this.btnF16.Location = new System.Drawing.Point(839, 232);
+            this.btnF16.Location = new System.Drawing.Point(804, 297);
             this.btnF16.Margin = new System.Windows.Forms.Padding(2);
             this.btnF16.Name = "btnF16";
             this.btnF16.Size = new System.Drawing.Size(154, 42);
@@ -121,7 +121,7 @@
             // 
             // btn747
             // 
-            this.btn747.Location = new System.Drawing.Point(839, 144);
+            this.btn747.Location = new System.Drawing.Point(804, 209);
             this.btn747.Margin = new System.Windows.Forms.Padding(2);
             this.btn747.Name = "btn747";
             this.btn747.Size = new System.Drawing.Size(154, 42);
@@ -132,7 +132,7 @@
             // 
             // btnBomber
             // 
-            this.btnBomber.Location = new System.Drawing.Point(839, 189);
+            this.btnBomber.Location = new System.Drawing.Point(804, 254);
             this.btnBomber.Margin = new System.Windows.Forms.Padding(2);
             this.btnBomber.Name = "btnBomber";
             this.btnBomber.Size = new System.Drawing.Size(154, 42);
@@ -145,7 +145,7 @@
             // 
             this.pbStealthBomber.BackColor = System.Drawing.Color.Transparent;
             this.pbStealthBomber.Image = ((System.Drawing.Image)(resources.GetObject("pbStealthBomber.Image")));
-            this.pbStealthBomber.Location = new System.Drawing.Point(893, 356);
+            this.pbStealthBomber.Location = new System.Drawing.Point(675, 702);
             this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(2);
             this.pbStealthBomber.Name = "pbStealthBomber";
             this.pbStealthBomber.Size = new System.Drawing.Size(50, 50);
@@ -156,7 +156,7 @@
             // 
             this.pbF16.BackColor = System.Drawing.Color.Transparent;
             this.pbF16.Image = ((System.Drawing.Image)(resources.GetObject("pbF16.Image")));
-            this.pbF16.Location = new System.Drawing.Point(895, 356);
+            this.pbF16.Location = new System.Drawing.Point(677, 702);
             this.pbF16.Margin = new System.Windows.Forms.Padding(2);
             this.pbF16.Name = "pbF16";
             this.pbF16.Size = new System.Drawing.Size(50, 50);
@@ -236,7 +236,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(839, 9);
+            this.btnStart.Location = new System.Drawing.Point(804, 74);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(154, 50);
@@ -247,7 +247,7 @@
             // 
             // pbtest
             // 
-            this.pbtest.Location = new System.Drawing.Point(881, 343);
+            this.pbtest.Location = new System.Drawing.Point(663, 689);
             this.pbtest.Name = "pbtest";
             this.pbtest.Size = new System.Drawing.Size(64, 63);
             this.pbtest.TabIndex = 15;
@@ -257,7 +257,7 @@
             // pbCannon4
             // 
             this.pbCannon4.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon4.Image")));
-            this.pbCannon4.Location = new System.Drawing.Point(839, 561);
+            this.pbCannon4.Location = new System.Drawing.Point(783, 562);
             this.pbCannon4.Name = "pbCannon4";
             this.pbCannon4.Size = new System.Drawing.Size(49, 50);
             this.pbCannon4.TabIndex = 16;
@@ -269,7 +269,7 @@
             // 
             this.pb747.BackColor = System.Drawing.Color.Transparent;
             this.pb747.Image = ((System.Drawing.Image)(resources.GetObject("pb747.Image")));
-            this.pb747.Location = new System.Drawing.Point(895, 356);
+            this.pb747.Location = new System.Drawing.Point(677, 702);
             this.pb747.Margin = new System.Windows.Forms.Padding(2);
             this.pb747.Name = "pb747";
             this.pb747.Size = new System.Drawing.Size(50, 50);
@@ -279,7 +279,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(838, 701);
+            this.label1.Location = new System.Drawing.Point(782, 702);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 13);
@@ -288,7 +288,7 @@
             // 
             // prbFuel
             // 
-            this.prbFuel.Location = new System.Drawing.Point(880, 696);
+            this.prbFuel.Location = new System.Drawing.Point(824, 697);
             this.prbFuel.Margin = new System.Windows.Forms.Padding(2);
             this.prbFuel.Name = "prbFuel";
             this.prbFuel.Size = new System.Drawing.Size(150, 19);
@@ -304,7 +304,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(838, 732);
+            this.label2.Location = new System.Drawing.Point(782, 733);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
@@ -314,7 +314,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(838, 756);
+            this.label3.Location = new System.Drawing.Point(782, 757);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -334,7 +334,7 @@
             // pbCannon7
             // 
             this.pbCannon7.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon7.Image")));
-            this.pbCannon7.Location = new System.Drawing.Point(840, 635);
+            this.pbCannon7.Location = new System.Drawing.Point(784, 636);
             this.pbCannon7.Name = "pbCannon7";
             this.pbCannon7.Size = new System.Drawing.Size(49, 50);
             this.pbCannon7.TabIndex = 23;
@@ -345,7 +345,7 @@
             // pbCannon3
             // 
             this.pbCannon3.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon3.Image")));
-            this.pbCannon3.Location = new System.Drawing.Point(948, 488);
+            this.pbCannon3.Location = new System.Drawing.Point(892, 489);
             this.pbCannon3.Name = "pbCannon3";
             this.pbCannon3.Size = new System.Drawing.Size(49, 50);
             this.pbCannon3.TabIndex = 24;
@@ -356,7 +356,7 @@
             // pbCannon8
             // 
             this.pbCannon8.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon8.Image")));
-            this.pbCannon8.Location = new System.Drawing.Point(893, 635);
+            this.pbCannon8.Location = new System.Drawing.Point(837, 636);
             this.pbCannon8.Name = "pbCannon8";
             this.pbCannon8.Size = new System.Drawing.Size(49, 50);
             this.pbCannon8.TabIndex = 25;
@@ -367,7 +367,7 @@
             // pbCannon2
             // 
             this.pbCannon2.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon2.Image")));
-            this.pbCannon2.Location = new System.Drawing.Point(893, 488);
+            this.pbCannon2.Location = new System.Drawing.Point(837, 489);
             this.pbCannon2.Name = "pbCannon2";
             this.pbCannon2.Size = new System.Drawing.Size(49, 50);
             this.pbCannon2.TabIndex = 26;
@@ -378,7 +378,7 @@
             // pbCannon6
             // 
             this.pbCannon6.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon6.Image")));
-            this.pbCannon6.Location = new System.Drawing.Point(948, 561);
+            this.pbCannon6.Location = new System.Drawing.Point(892, 562);
             this.pbCannon6.Name = "pbCannon6";
             this.pbCannon6.Size = new System.Drawing.Size(49, 50);
             this.pbCannon6.TabIndex = 27;
@@ -389,7 +389,7 @@
             // pbCannon9
             // 
             this.pbCannon9.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon9.Image")));
-            this.pbCannon9.Location = new System.Drawing.Point(948, 635);
+            this.pbCannon9.Location = new System.Drawing.Point(892, 636);
             this.pbCannon9.Name = "pbCannon9";
             this.pbCannon9.Size = new System.Drawing.Size(49, 50);
             this.pbCannon9.TabIndex = 28;
@@ -400,7 +400,7 @@
             // pbCannon5
             // 
             this.pbCannon5.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon5.Image")));
-            this.pbCannon5.Location = new System.Drawing.Point(893, 561);
+            this.pbCannon5.Location = new System.Drawing.Point(837, 562);
             this.pbCannon5.Name = "pbCannon5";
             this.pbCannon5.Size = new System.Drawing.Size(49, 50);
             this.pbCannon5.TabIndex = 29;
@@ -411,7 +411,7 @@
             // pbCannon
             // 
             this.pbCannon.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon.Image")));
-            this.pbCannon.Location = new System.Drawing.Point(840, 488);
+            this.pbCannon.Location = new System.Drawing.Point(784, 489);
             this.pbCannon.Name = "pbCannon";
             this.pbCannon.Size = new System.Drawing.Size(49, 50);
             this.pbCannon.TabIndex = 30;
@@ -421,7 +421,7 @@
             // 
             // btnStopSimulation
             // 
-            this.btnStopSimulation.Location = new System.Drawing.Point(839, 63);
+            this.btnStopSimulation.Location = new System.Drawing.Point(804, 128);
             this.btnStopSimulation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStopSimulation.Name = "btnStopSimulation";
             this.btnStopSimulation.Size = new System.Drawing.Size(154, 50);
@@ -478,19 +478,10 @@
             this.pbBarrack.TabStop = false;
             this.pbBarrack.Visible = false;
             // 
-            // lstReports
-            // 
-            this.lstReports.FormattingEnabled = true;
-            this.lstReports.Location = new System.Drawing.Point(998, 11);
-            this.lstReports.Margin = new System.Windows.Forms.Padding(2);
-            this.lstReports.Name = "lstReports";
-            this.lstReports.Size = new System.Drawing.Size(397, 771);
-            this.lstReports.TabIndex = 32;
-            // 
             // lblSpeed
             // 
             this.lblSpeed.AutoSize = true;
-            this.lblSpeed.Location = new System.Drawing.Point(879, 756);
+            this.lblSpeed.Location = new System.Drawing.Point(823, 757);
             this.lblSpeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(0, 13);
@@ -499,7 +490,7 @@
             // lblAltitude
             // 
             this.lblAltitude.AutoSize = true;
-            this.lblAltitude.Location = new System.Drawing.Point(884, 732);
+            this.lblAltitude.Location = new System.Drawing.Point(828, 733);
             this.lblAltitude.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAltitude.Name = "lblAltitude";
             this.lblAltitude.Size = new System.Drawing.Size(0, 13);
@@ -508,21 +499,29 @@
             // lstJetDetails
             // 
             this.lstJetDetails.FormattingEnabled = true;
-            this.lstJetDetails.Location = new System.Drawing.Point(814, 312);
+            this.lstJetDetails.Location = new System.Drawing.Point(997, 11);
             this.lstJetDetails.Margin = new System.Windows.Forms.Padding(2);
             this.lstJetDetails.Name = "lstJetDetails";
             this.lstJetDetails.Size = new System.Drawing.Size(397, 433);
             this.lstJetDetails.TabIndex = 35;
             // 
+            // lstReports
+            // 
+            this.lstReports.Location = new System.Drawing.Point(998, 449);
+            this.lstReports.Name = "lstReports";
+            this.lstReports.Size = new System.Drawing.Size(396, 367);
+            this.lstReports.TabIndex = 36;
+            this.lstReports.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 783);
+            this.ClientSize = new System.Drawing.Size(1356, 783);
+            this.Controls.Add(this.lstReports);
             this.Controls.Add(this.lstJetDetails);
             this.Controls.Add(this.lblSpeed);
             this.Controls.Add(this.lblAltitude);
-            this.Controls.Add(this.lstReports);
             this.Controls.Add(this.btnStopSimulation);
             this.Controls.Add(this.pbCannon);
             this.Controls.Add(this.pbCannon5);
@@ -624,10 +623,10 @@
         private System.Windows.Forms.PictureBox pbHospital;
         private System.Windows.Forms.PictureBox pbHeadquaters;
         private System.Windows.Forms.PictureBox pbBarrack;
-        private System.Windows.Forms.ListBox lstReports;
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Label lblAltitude;
         private System.Windows.Forms.ListBox lstJetDetails;
+        private System.Windows.Forms.RichTextBox lstReports;
     }
 }
 

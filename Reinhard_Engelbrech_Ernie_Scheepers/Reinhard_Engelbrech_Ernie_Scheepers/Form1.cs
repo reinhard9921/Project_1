@@ -18,8 +18,8 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             InitializeComponent();
             Jets.Add(new Jet("Spitfire", 100, 6100, 550, 2000));
-            Jets.Add(new Jet("F-16 Falcon", 2400, 12000, 1143, 9500));
-            Jets.Add(new Jet("de Haviland", 900, 18000, 750, 5000));
+            Jets.Add(new Jet("F-16 Falcon", 200, 12000, 1143, 9500));
+            Jets.Add(new Jet("de Haviland", 100, 18000, 750, 5000));
         }
 
         double TimerAltitude;
@@ -161,11 +161,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lstReports.Items.Clear();
+            lstReports.Clear();
             pb747.Hide();
             pbF16.Hide();
             pbStealthBomber.Hide();
         }
+
+        int x = 602;
+        int y = 701;
 
         private void btnF16_Click(object sender, EventArgs e)
         {
@@ -173,8 +176,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Show();
             pbStealthBomber.Hide();
             pb = pbF16;
-            int x = 757;
-            int y = 400;
+
             pb.Location = new Point(x, y);
             Plane = "F-16 Falcon";
             foreach (Jet item in Jets)
@@ -223,8 +225,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Hide();
             pb = pb747;
-            int x = 757;
-            int y = 400;
             pb.Location = new Point(x, y);
             Plane = "Spitfire";
             foreach (Jet item in Jets)
@@ -271,8 +271,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Show();
             pb = pbStealthBomber;
-            int x = 757;
-            int y = 400;
             pb.Location = new Point(x, y);
             Plane = "de Haviland";
             foreach (Jet item in Jets)
@@ -373,7 +371,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         Thread tMove = null;
 
         Point endpoint = new Point(69, 53);
-        Point beginPoint = new Point(757, 400);
+        Point beginPoint = new Point(602, 701);
 
         public PictureBox CheckCollission(PictureBox pb1)
         {
@@ -507,10 +505,21 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
             else if (Plane == "de Haviland")
             {
+                devider = Convert.ToInt32(WeightLoaded / 1500);
+
+            }
+
+            if (TimerFuel >= 0)
+            {
+                prbFuel.Value -= devider;
+                TimerFuel -= 1;
+            }
+            else
+            {
+                tmrFuel.Stop();
 
             }
         }
-
 
         public List<Point> JetTest(int iIncerementation)
         {
@@ -629,20 +638,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             return lNew;
         }
 
-        //private void tmrFuel_Tick(object sender, EventArgs e)
-        //{
-        //    if (TimerFuel >= 0)
-        //    {
-        //        prbFuel.Value -= devider;
-        //        TimerFuel -= 1;
-        //    }
-        //    else
-        //    {
-        //        tmrFuel.Stop();
-
-        //    }
-
-        //}
+        
 
 
         private void tmrAltitude_Tick(object sender, EventArgs e)
@@ -916,7 +912,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
             else
             {
-                lstReports.Items.Add(line);
+                lstReports.Text = (line);
             }
         }
         public void JetMove()
@@ -972,49 +968,70 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             FileStream fs = new FileStream("Report.txt", FileMode.Create, FileAccess.ReadWrite);
             StreamWriter writer = new StreamWriter(fs);
+            StringBuilder report = new StringBuilder();
 
             writer.WriteLine("Success Rate of the Mission: " + Success + "%");
             writer.WriteLine("Buildings that was hit: ");
 
-            JetReportCrossThread("Success Rate of the Mission: " + Success + " % ");
+            report.AppendLine("Success Rate of the Mission: " + Success + " % ");
+            //JetReportCrossThread("Success Rate of the Mission: " + Success + " % ");
 
             if (Success == 0)
             {
-                JetReportCrossThread("No buildings was hit");
+                report.AppendLine("No buildings was hit");
+                //JetReportCrossThread("No buildings was hit");
             }
             else
             {
-                JetReportCrossThread("Buildings that was hit:");
+                report.AppendLine("Buildings that was hit:");
+                //JetReportCrossThread("Buildings that was hit:");
             }
 
             if (HQ == true)
             {
-                JetReportCrossThread("\tHeadquaters at Coordinates: " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
+                report.AppendLine("Headquaters at Coordinates: " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
+
+                //JetReportCrossThread("\tHeadquaters at Coordinates: " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
                 writer.WriteLine("Headquaters at Coordinates " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
             }
             if (Hospital == true)
             {
-                JetReportCrossThread("\tHospital at Coordinates: " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
+                report.AppendLine("Hospital at Coordinates: " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
+
+                //JetReportCrossThread("\tHospital at Coordinates: " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
                 writer.WriteLine("Hospital at Coordinates " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
             }
             if (barracks == true)
             {
-                JetReportCrossThread("\tBarracks at Coordinates: " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
+                report.AppendLine("Barracks at Coordinates: " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
+
+                //JetReportCrossThread("\tBarracks at Coordinates: " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
                 writer.WriteLine("Barracks at Coordinates " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
             }
             if (armory == true)
             {
-                JetReportCrossThread("\tArmory at Coordinates: " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
+                report.AppendLine("Armory at Coordinates: " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
+
+                //JetReportCrossThread("\tArmory at Coordinates: " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
                 writer.WriteLine("Armory at Coordinates " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
             }
 
+            JetReportCrossThread(report.ToString());
 
             //Add Line for object avoided
+
 
 
             writer.WriteLine("Plane That Was Chosen Was The: " + Plane);
             writer.WriteLine("Invintory still Full");
             writer.WriteLine("Amount of Fuel Left " + prbFuel.Value + "l");
+
+            fs.Close();
+
+            //Reportform frmReport = new Reportform(report.ToString());
+            //frmReport.Show();
+
+            StopThreads(report.ToString(), "End", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -1026,7 +1043,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             string sline = reader.ReadLine();
             while (!reader.EndOfStream)
             {
-                lstReports.Items.Add(sline);
+                lstReports.Text = sline;
                 sline = reader.ReadLine();
             }
         }
