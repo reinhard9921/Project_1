@@ -101,7 +101,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(13, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1000, 933);
             this.pictureBox1.TabIndex = 1;
@@ -144,7 +144,7 @@
             // 
             this.pbStealthBomber.BackColor = System.Drawing.Color.Transparent;
             this.pbStealthBomber.Image = ((System.Drawing.Image)(resources.GetObject("pbStealthBomber.Image")));
-            this.pbStealthBomber.Location = new System.Drawing.Point(1193, 438);
+            this.pbStealthBomber.Location = new System.Drawing.Point(1191, 438);
             this.pbStealthBomber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbStealthBomber.Name = "pbStealthBomber";
             this.pbStealthBomber.Size = new System.Drawing.Size(67, 62);
@@ -247,7 +247,7 @@
             // pbtest
             // 
             this.pbtest.Location = new System.Drawing.Point(1175, 422);
-            this.pbtest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbtest.Margin = new System.Windows.Forms.Padding(4);
             this.pbtest.Name = "pbtest";
             this.pbtest.Size = new System.Drawing.Size(85, 78);
             this.pbtest.TabIndex = 15;
@@ -258,7 +258,7 @@
             // 
             this.pbCannon4.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon4.Image")));
             this.pbCannon4.Location = new System.Drawing.Point(1119, 691);
-            this.pbCannon4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon4.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon4.Name = "pbCannon4";
             this.pbCannon4.Size = new System.Drawing.Size(65, 62);
             this.pbCannon4.TabIndex = 16;
@@ -333,7 +333,7 @@
             // 
             this.pbCannon7.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon7.Image")));
             this.pbCannon7.Location = new System.Drawing.Point(1120, 781);
-            this.pbCannon7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon7.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon7.Name = "pbCannon7";
             this.pbCannon7.Size = new System.Drawing.Size(65, 62);
             this.pbCannon7.TabIndex = 23;
@@ -345,7 +345,7 @@
             // 
             this.pbCannon3.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon3.Image")));
             this.pbCannon3.Location = new System.Drawing.Point(1264, 601);
-            this.pbCannon3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon3.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon3.Name = "pbCannon3";
             this.pbCannon3.Size = new System.Drawing.Size(65, 62);
             this.pbCannon3.TabIndex = 24;
@@ -357,7 +357,7 @@
             // 
             this.pbCannon8.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon8.Image")));
             this.pbCannon8.Location = new System.Drawing.Point(1191, 781);
-            this.pbCannon8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon8.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon8.Name = "pbCannon8";
             this.pbCannon8.Size = new System.Drawing.Size(65, 62);
             this.pbCannon8.TabIndex = 25;
@@ -369,7 +369,7 @@
             // 
             this.pbCannon2.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon2.Image")));
             this.pbCannon2.Location = new System.Drawing.Point(1191, 601);
-            this.pbCannon2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon2.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon2.Name = "pbCannon2";
             this.pbCannon2.Size = new System.Drawing.Size(65, 62);
             this.pbCannon2.TabIndex = 26;
@@ -381,7 +381,7 @@
             // 
             this.pbCannon6.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon6.Image")));
             this.pbCannon6.Location = new System.Drawing.Point(1264, 691);
-            this.pbCannon6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon6.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon6.Name = "pbCannon6";
             this.pbCannon6.Size = new System.Drawing.Size(65, 62);
             this.pbCannon6.TabIndex = 27;
@@ -393,7 +393,7 @@
             // 
             this.pbCannon9.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon9.Image")));
             this.pbCannon9.Location = new System.Drawing.Point(1264, 781);
-            this.pbCannon9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon9.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon9.Name = "pbCannon9";
             this.pbCannon9.Size = new System.Drawing.Size(65, 62);
             this.pbCannon9.TabIndex = 28;
@@ -405,7 +405,7 @@
             // 
             this.pbCannon5.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon5.Image")));
             this.pbCannon5.Location = new System.Drawing.Point(1191, 691);
-            this.pbCannon5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon5.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon5.Name = "pbCannon5";
             this.pbCannon5.Size = new System.Drawing.Size(65, 62);
             this.pbCannon5.TabIndex = 29;
@@ -417,7 +417,7 @@
             // 
             this.pbCannon.Image = ((System.Drawing.Image)(resources.GetObject("pbCannon.Image")));
             this.pbCannon.Location = new System.Drawing.Point(1120, 601);
-            this.pbCannon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbCannon.Margin = new System.Windows.Forms.Padding(4);
             this.pbCannon.Name = "pbCannon";
             this.pbCannon.Size = new System.Drawing.Size(65, 62);
             this.pbCannon.TabIndex = 30;
@@ -447,6 +447,7 @@
             this.pbArmory.TabIndex = 13;
             this.pbArmory.TabStop = false;
             this.pbArmory.Visible = false;
+            this.pbArmory.Click += new System.EventHandler(this.pbArmory_Click);
             // 
             // pbHospital
             // 

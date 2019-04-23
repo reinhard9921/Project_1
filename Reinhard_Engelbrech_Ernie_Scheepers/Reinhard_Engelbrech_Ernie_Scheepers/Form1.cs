@@ -946,5 +946,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
+        private void pbArmory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
