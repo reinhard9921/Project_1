@@ -883,7 +883,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 Thread.Sleep(100);
             }
 
+            List<Point> lBack = lPoints;
+            lBack.Reverse();
 
+            foreach (Point item in lBack)
+            {
+                JetMoveCrossThread(item);
+                Thread.Sleep(100);
+
+
+            }
 
         }
 
