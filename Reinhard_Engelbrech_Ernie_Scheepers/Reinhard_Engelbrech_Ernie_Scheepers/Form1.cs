@@ -17,20 +17,20 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         public Form1()
         {
             InitializeComponent();
-            Jets.Add(new Jet("Spitfire", 600, 6100, 550, 2000, 2500));
-            Jets.Add(new Jet("F-16 Falcon", 2400, 12000, 1143, 9000, 9500));
-            Jets.Add(new Jet("de Haviland", 900, 18000, 750, 3000, 5000));
+            Jets.Add(new Jet("Spitfire", 100, 6100, 550, 2000));
+            Jets.Add(new Jet("F-16 Falcon", 2400, 12000, 1143, 9500));
+            Jets.Add(new Jet("de Haviland", 900, 18000, 750, 5000));
         }
 
         double TimerAltitude;
-        double TimerSpeed;
+        //double TimerSpeed;
         int TimerFuel = 100;
         PictureBox pb = null;
         string Plane = null;
         List<Jet> Jets = new List<Jet>();
         List<PictureBox> Guns = new List<PictureBox>();
         double altitude;
-        double speed;
+        //double speed;
         double WeightLoaded;
         double WeightUnloaded;
         int fuel;
@@ -41,7 +41,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         bool barracks;
         bool armory;
         Random rnd = new Random();
-        int FlightSpeed;
+        //int FlightSpeed;
 
         public void Unhide(PictureBox pb)
         {
@@ -52,7 +52,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 if (hit == 1)
                 {
                     pbArmory.ImageLocation = "Cloud.jpg";
-                    Success += hit;
+                    Success += 25;
                     armory = true;
                 }
 
@@ -61,17 +61,17 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             {
 
                 hit = rnd.Next(20);
-                if (hit == 1)
+                if ((hit == 1) && (barracks = false))
                 {
                     pbBarrack.ImageLocation = "Cloud.jpg";
-                    Success += hit;
+                    Success += 25;
                     barracks = true;
                 }
             }
             if (pb.Bounds.IntersectsWith(pbHeadquaters.Bounds))
             {
                 hit = rnd.Next(2);
-                if (hit == 1)
+                if ((hit == 1) && (HQ = false))
                 {
                     pbHeadquaters.ImageLocation = "Cloud.jpg";
                     Success += hit;
@@ -81,24 +81,24 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             if (pb.Bounds.IntersectsWith(pbHospital.Bounds))
             {
                 hit = rnd.Next(25);
-                if (hit == 1)
+                if ((hit == 1) && (Hospital = false))
                 {
                     pbHospital.ImageLocation = "Cloud.jpg";
                     Success += hit;
                     Hospital = true;
                 }
             }
-            if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
-            {
-                hit = rnd.Next(20);
-                if (hit == 1)
-                {
-                    pbTankDepo.ImageLocation = "Cloud.jpg";
-                    Success += hit;
-                    barracks = true;
-                }
+            //if (pb.Bounds.IntersectsWith(pbTankDepo.Bounds))
+            //{
+            //    hit = rnd.Next(20);
+            //    if (hit == 1)
+            //    {
+            //        pbTankDepo.ImageLocation = "Cloud.jpg";
+            //        Success += hit;
+            //        barracks = true;
+            //    }
 
-            }
+            //}
             //if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
             //{
             //    MessageBox.Show("Plane was shot down", "Plane Hit", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -163,7 +163,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
             lstReports.Items.Clear();
             pb747.Hide();
-            pb747.BackColor = Color.Transparent;
             pbF16.Hide();
             pbStealthBomber.Hide();
         }
@@ -174,21 +173,42 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Show();
             pbStealthBomber.Hide();
             pb = pbF16;
-            int x = 920;
-            int y = 690;
+            int x = 757;
+            int y = 400;
             pb.Location = new Point(x, y);
             Plane = "F-16 Falcon";
             foreach (Jet item in Jets)
             {
                 if (item.Name == "F-16 Falcon")
                 {
+                    item.LInventory.Add(new InventoryObjects("V2 Rocket missile", 1500));
+                    item.LInventory.Add(new InventoryObjects("Fat-B0y", 2000));
 
                     altitude = item.TopAltitude;
-                    speed = item.MaxSpeed;
-                    FlightSpeed = 3;
+                    TopSpeed = item.MaxSpeed;
+                    CurrentSpeed = 500;
+                    item.CalculateInventoryWeight();
                     WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
+
+                    lstJetDetails.Items.Clear();
+                    lstJetDetails.Items.Add(string.Format("Jet Name: {0}", item.Name));
+                    lstJetDetails.Items.Add(string.Format("Top speed: {0} km/h", item.MaxSpeed.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Jet weight: {0} kg", item.WeightWithoutInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Inverntory weight: {0} kg", (item.WeightWithInventory - item.WeightWithoutInventory).ToString()));
+
+                    lstJetDetails.Items.Add(string.Format("Items in inventory: {0}", item.Name));
+
+                    foreach (InventoryObjects inventoryObject in item.LInventory)
+                    {
+                        lstJetDetails.Items.Add(string.Format("\t{0}: {1} kg", inventoryObject.Name, inventoryObject.Weight));
+
+                    }
+                    lstJetDetails.Items.Add("");
+
+                    lstJetDetails.Items.Add(string.Format("Total weight: {0} kg", item.WeightWithInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Fueltank Size: {0} l", item.MaxSpeed.ToString()));
                 }
             }
 
@@ -203,21 +223,42 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Hide();
             pb = pb747;
-            int x = 920;
-            int y = 690;
+            int x = 757;
+            int y = 400;
             pb.Location = new Point(x, y);
             Plane = "Spitfire";
             foreach (Jet item in Jets)
             {
                 if (item.Name == "Spitfire")
                 {
+                    item.LInventory.Add(new InventoryObjects("V2 Rocket missile", 1500));
+                    item.LInventory.Add(new InventoryObjects("Fat-B0y", 2000));
 
                     altitude = item.TopAltitude;
-                    speed = item.MaxSpeed;
-                    FlightSpeed = 1;
+                    TopSpeed = item.MaxSpeed;
+                    CurrentSpeed = 500;
+                    item.CalculateInventoryWeight();
                     WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
+
+                    lstJetDetails.Items.Clear();
+                    lstJetDetails.Items.Add(string.Format("Jet Name: {0}", item.Name));
+                    lstJetDetails.Items.Add(string.Format("Top speed: {0} km/h", item.MaxSpeed.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Jet weight: {0} kg", item.WeightWithoutInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Inverntory weight: {0} kg", (item.WeightWithInventory - item.WeightWithoutInventory).ToString()));
+
+                    lstJetDetails.Items.Add(string.Format("Items in inventory: {0}", item.Name));
+
+                    foreach (InventoryObjects inventoryObject in item.LInventory)
+                    {
+                        lstJetDetails.Items.Add(string.Format("\t{0}: {1} kg", inventoryObject.Name, inventoryObject.Weight));
+
+                    }
+                    lstJetDetails.Items.Add("");
+
+                    lstJetDetails.Items.Add(string.Format("Total weight: {0} kg", item.WeightWithInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Fueltank Size: {0} l", item.MaxSpeed.ToString()));
                 }
             }
             prbFuel.Maximum = fuel;
@@ -230,20 +271,42 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             pbF16.Hide();
             pbStealthBomber.Show();
             pb = pbStealthBomber;
-            int x = 920;
-            int y = 690;
+            int x = 757;
+            int y = 400;
             pb.Location = new Point(x, y);
             Plane = "de Haviland";
             foreach (Jet item in Jets)
             {
                 if (item.Name == "de Haviland")
                 {
+                    item.LInventory.Add(new InventoryObjects("V2 Rocket missile", 1500));
+                    item.LInventory.Add(new InventoryObjects("Fat-B0y", 2000));
 
                     altitude = item.TopAltitude;
-                    speed = item.MaxSpeed;
-                    FlightSpeed = 1; WeightLoaded = item.WeightWithInventory;
+                    TopSpeed = item.MaxSpeed;
+                    CurrentSpeed = 500;
+                    item.CalculateInventoryWeight();
+                    WeightLoaded = item.WeightWithInventory;
                     WeightUnloaded = item.WeightWithoutInventory;
                     fuel = Convert.ToInt32(item.FuelTankSize);
+
+                    lstJetDetails.Items.Clear();
+                    lstJetDetails.Items.Add(string.Format("Jet Name: {0}", item.Name));
+                    lstJetDetails.Items.Add(string.Format("Top speed: {0} km/h", item.MaxSpeed.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Jet weight: {0} kg", item.WeightWithoutInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Inverntory weight: {0} kg", (item.WeightWithInventory - item.WeightWithoutInventory).ToString()));
+
+                    lstJetDetails.Items.Add(string.Format("Items in inventory: {0}", item.Name));
+
+                    foreach (InventoryObjects inventoryObject in item.LInventory)
+                    {
+                        lstJetDetails.Items.Add(string.Format("\t{0}: {1} kg", inventoryObject.Name, inventoryObject.Weight));
+
+                    }
+                    lstJetDetails.Items.Add("");
+
+                    lstJetDetails.Items.Add(string.Format("Total weight: {0} kg", item.WeightWithInventory.ToString()));
+                    lstJetDetails.Items.Add(string.Format("Fueltank Size: {0} l", item.MaxSpeed.ToString()));
                 }
             }
             prbFuel.Maximum = fuel;
@@ -303,7 +366,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void timerRight_Tick(object sender, EventArgs e)
         {
             pb.Left += 1;
-
         }
 
         List<Point> lPoints = new List<Point>();
@@ -358,7 +420,6 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             try
-
             {
                 if (pb == null)
                 {
@@ -397,10 +458,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                         }
                     }
 
-                    lPoints = JetTest();
+                    if (JetTest(-1).Count() > JetTest(1).Count())
+                    {
+                        lPoints = JetTest(1);
+                    }
+                    else
+                    {
+                        lPoints = JetTest(-1);
+                    }
+
                 }
-
-
 
                 tMove = new Thread(JetMove);
 
@@ -412,14 +479,14 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 tmrAltitude.Start();
                 TmrSpeed.Start();
             }
-            catch (CustomeException )
+            catch (CustomeException)
             {
-                
-                
+
+
             }
 
 
-            
+
 
 
         }
@@ -445,38 +512,12 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         }
 
 
-        public List<Point> JetTest()
+        public List<Point> JetTest(int iIncerementation)
         {
+
+
             List<Point> lNew = lPoints;
-            //pb = pbtest;
-            //bool bFoundColision = false;
 
-            //for (int i = 0; i < lNew.Count(); i++)
-            //{
-            //    JetMoveCrossThread(lNew[i]);
-            //    if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
-            //    {
-            //        bFoundColision = true;
-
-            //        break;
-            //    }
-            //}
-
-            //while (bFoundColision)
-            //{
-            //    bFoundColision = false;
-
-            //    for (int i = 0; i < lNew.Count(); i++)
-            //    {
-            //        JetMoveCrossThread(lNew[i]);
-            //        if (pb.Bounds.IntersectsWith(pbCannon.Bounds))
-            //        {
-            //            bFoundColision = true;
-
-            //            break;
-            //        }
-            //    }
-            //Point point = new Point(0, 0);
             List<Point> lLastLine = new List<Point>();
             List<Point> lRight = new List<Point>();
             List<Point> lFirstLine = new List<Point>();
@@ -490,7 +531,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                 JetMoveCrossThread(lNew[i]);
                 if (CheckCollission(pb) != null)
                 {
-                    MessageBox.Show(string.Format("Possible collission detected at {0}\nRerouting...", pb.Location.ToString()));
+                    //MessageBox.Show(string.Format("Possible collission detected at {0}\nRerouting...", pb.Location.ToString()));
                     bFoundColision = true;
                     pbCollide = CheckCollission(pb);
                     for (int j = i; j < lNew.Count(); j++)
@@ -515,7 +556,7 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                     {
                         bChanged = true;
                         newpoint = lRight[k];
-                        newpoint.X += 10;
+                        newpoint.X += (10 * iIncerementation);
                         lRight[k] = newpoint;
 
                         JetMoveCrossThread(lRight[k]);
@@ -530,11 +571,10 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
                             iFirstLinePos = k;
                         }
                         newpoint = lRight[k];
-                        newpoint.X += 15;
+                        newpoint.X += (15 * iIncerementation);
                         lRight[k] = newpoint;
                     }
                 }
-
 
                 lLastLine = GetLine(lRight[iLastLinePos - 1], endpoint);
                 lFirstLine = GetLine(beginPoint, lRight[iLastLinePos]);
@@ -550,40 +590,22 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
                     lNew.Add(item);
 
-                    
+
                 }
-
-                //foreach (Point item in lRight)
-                //{
-                //    lNew.Add(item);
-
-                //    if (item == lRight[iLastLinePos])
-                //    {
-                //        break;
-                //    }
-                //}
 
 
                 foreach (Point item in lLastLine)
                 {
                     lNew.Add(item);
                 }
-
-                //foreach (Point item in lNew)
-                //{
-                //    //lPoints.Add(item);
-
-                //    JetMoveCrossThread(item);
-
-                //    Thread.Sleep(100);
-                //}
-                //}
             }
             return lNew;
         }
 
         public List<Point> GetLine(Point pBegin, Point pEnd)
         {
+
+
             List<Point> lNew = new List<Point>();
 
             decimal m = 0;
@@ -638,15 +660,15 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
         private void TmrSpeed_Tick(object sender, EventArgs e)
         {
-            if (TimerSpeed <= speed)
-            {
-                TimerSpeed += 10;
-                lblSpeed.Text = Convert.ToString(TimerSpeed);
-            }
-            else
-            {
-                TmrSpeed.Stop();
-            }
+            //if (CurrentSpeed >= TopSpeed)
+            //{
+            //    CurrentSpeed -= 100;
+            //    lblSpeed.Text = Convert.ToString(CurrentSpeed);
+            //}
+            //else
+            //{
+            //    TmrSpeed.Stop();
+            //}
         }
 
 
@@ -832,10 +854,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         {
 
         }
-
-        delegate void delCrossThreadMove(Point point);
         delegate void delCrossThreadShow();
 
+        delegate void delCrossThreadMove(Point point);
 
         public void JetMoveCrossThread(Point point) //solution vir jet se movement
         {
@@ -867,20 +888,55 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
+        double CurrentSpeed;
+        double TopSpeed;
+
+        delegate void delCrossThreadSpeed(string speed);
+
+        public void JetSpeedCrossThread(string speed) //solution vir jet se movement
+        {
+            if (this.lblSpeed.InvokeRequired)
+            {
+                delCrossThreadSpeed d = new delCrossThreadSpeed(JetSpeedCrossThread);
+                this.Invoke(d, speed);
+            }
+            else
+            {
+                lblSpeed.Text = speed;
+            }
+        }
+        delegate void delCrossThreadReport(string line);
+
+        public void JetReportCrossThread(string line) //solution vir jet se movement
+        {
+            if (this.lblSpeed.InvokeRequired)
+            {
+                delCrossThreadReport d = new delCrossThreadReport(JetReportCrossThread);
+                this.Invoke(d, line);
+            }
+            else
+            {
+                lstReports.Items.Add(line);
+            }
+        }
         public void JetMove()
         {
 
             foreach (Point item in lPoints)
             {
-                //lPoints.Add(item);
-
                 JetMoveCrossThread(item);
                 if ((item.X <= 458) && (item.Y <= 257))
                 {
                     BaseCampVisibility();
                 }
                 Unhide(pb);
-                Thread.Sleep(100);
+                Thread.Sleep((int)CurrentSpeed);
+
+                if (CurrentSpeed > TopSpeed)
+                {
+                    CurrentSpeed -= 25;
+                    JetSpeedCrossThread((1000 - CurrentSpeed).ToString());
+                }
             }
 
             List<Point> lBack = lPoints;
@@ -889,15 +945,19 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             foreach (Point item in lBack)
             {
                 JetMoveCrossThread(item);
-                Thread.Sleep(100);
+                Thread.Sleep((int)CurrentSpeed);
 
 
             }
+
+            DisplayReport();
 
         }
 
         private void btnStopSimulation_Click(object sender, EventArgs e)
         {
+            StopThreads("Stopping all threads,\nApplication closing", "Application closed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             Application.Restart();
         }
 
@@ -915,20 +975,36 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
 
             writer.WriteLine("Success Rate of the Mission: " + Success + "%");
             writer.WriteLine("Buildings that was hit: ");
+
+            JetReportCrossThread("Success Rate of the Mission: " + Success + " % ");
+
+            if (Success == 0)
+            {
+                JetReportCrossThread("No buildings was hit");
+            }
+            else
+            {
+                JetReportCrossThread("Buildings that was hit:");
+            }
+
             if (HQ == true)
             {
+                JetReportCrossThread("\tHeadquaters at Coordinates: " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
                 writer.WriteLine("Headquaters at Coordinates " + pbHeadquaters.Location.X + ", " + pbHeadquaters.Location.Y);
             }
             if (Hospital == true)
             {
+                JetReportCrossThread("\tHospital at Coordinates: " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
                 writer.WriteLine("Hospital at Coordinates " + pbHospital.Location.X + ", " + pbHospital.Location.Y);
             }
             if (barracks == true)
             {
+                JetReportCrossThread("\tBarracks at Coordinates: " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
                 writer.WriteLine("Barracks at Coordinates " + pbBarrack.Location.X + ", " + pbBarrack.Location.Y);
             }
             if (armory == true)
             {
+                JetReportCrossThread("\tArmory at Coordinates: " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
                 writer.WriteLine("Armory at Coordinates " + pbArmory.Location.X + ", " + pbArmory.Location.Y);
             }
 
@@ -955,9 +1031,5 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             }
         }
 
-        private void pbArmory_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
