@@ -17,9 +17,9 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
         public Form1()
         {
             InitializeComponent();
-            Jets.Add(new Jet("Spitfire", 100, 6100, 550, 2000));
-            Jets.Add(new Jet("F-16 Falcon", 200, 12000, 1143, 9500));
-            Jets.Add(new Jet("de Haviland", 100, 18000, 750, 5000));
+            Jets.Add(new Jet("Spitfire", 100, 6100, 1000, 2000));
+            Jets.Add(new Jet("F-16 Falcon", 200, 12000, 2000, 9500));
+            Jets.Add(new Jet("de Haviland", 100, 18000, 1500, 5000));
         }
 
         double TimerAltitude;
@@ -504,16 +504,16 @@ namespace Reinhard_Engelbrech_Ernie_Scheepers
             int devider = 1;
             if (Plane == "Spitfire")
             {
-                devider = Convert.ToInt32(WeightLoaded / 1000);
+                devider = Convert.ToInt32(WeightLoaded / fuel);
             }
             else if (Plane == "F-16 Falcon")
             {
 
-                devider = Convert.ToInt32(WeightLoaded / 2000);
+                devider = Convert.ToInt32(WeightLoaded / fuel);
             }
             else if (Plane == "de Haviland")
             {
-                devider = Convert.ToInt32(WeightLoaded / 1500);
+                devider = Convert.ToInt32(WeightLoaded / fuel);
 
             }
 
